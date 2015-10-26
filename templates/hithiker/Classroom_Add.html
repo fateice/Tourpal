@@ -1,0 +1,32 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+<head>
+    <title>数据库操作简单表的添加</title>
+</head>
+<body>
+    <h1>这里是Classroom的添加页面</h1>
+    {% if error %}
+        <p style="color: red;">请输入班级名称和导师姓名</p>
+    {% endif %}
+   <form action="" method="get">
+        <table border="1" cellpadding="10">
+          <tr>
+            <td align="center">项目</td>
+            <td align="center">内容</td>
+          </tr>
+          <tr>
+            <td align="right">班级名称：</td>
+            <td><input type="text" name="name"></td>
+          </tr>
+          <tr>
+            <td align="right">导师姓名：</td>
+            <td><input type="text" name="tutor"></td>
+          </tr>
+          <tr>
+            <td colspan="2"><input type="submit" value="添加"></td>
+          </tr>
+        </table>
+  </form>
+  
+</body>
+</html>
