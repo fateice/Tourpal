@@ -21,4 +21,4 @@ def ClassroonAdd(request):
         return render_to_response('hithiker/Classroom_Add.html', {'error': True}) 
 
 def index(request):
-    return HttpResponse("Hello,  django!")
+    return render_to_response('hithiker/index.html')

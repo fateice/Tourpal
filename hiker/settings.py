@@ -1,6 +1,8 @@
 import os
 import os.path
 from os import environ
+STATIC_ROOT = ''
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
@@ -95,4 +97,8 @@ TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates".
     # Always use forward slashes, even on Windows.
     './templates',
+)
+
+STATICFILES_DIRS = (
+    os.path.join(os.path.dirname(__file__), '../static/').replace('\\','/'),
 )
