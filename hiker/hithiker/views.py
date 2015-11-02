@@ -1,7 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.db import connection,transaction  
-from django.shortcuts import render_to_response
+from django.shortcuts import render_to_response,RequestContext
+from django.views.decorators.csrf import csrf_protect
 from hiker.hithiker.models import *  
 import MySQLdb
   
@@ -20,5 +21,9 @@ def ClassroonAdd(request):
     else:  
         return render_to_response('hithiker/Classroom_Add.html', {'error': True}) 
 
+def welcome(request):
+    return render_to_response('hithiker/welcome.html')
+
+@csrf_protect
 def index(request):
-    return render_to_response('hithiker/index.html')
+    return render_to_response('hithiker/index.html',context_instance=RequestContext(request))
