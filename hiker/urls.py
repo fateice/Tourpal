@@ -16,5 +16,6 @@ urlpatterns = patterns('',
     url(r'^criuses.html/$', 'hiker.hithiker.views.criuses'),
     url(r'^contact.html/$', 'hiker.hithiker.views.contact'),
     url(r'^blog.html/$', 'hiker.hithiker.views.blog'),
+    url(r'^register.html/$', 'hiker.hithiker.views.register'),
     url( r'^static/(?P<path>.*)$', 'django.views.static.serve',{ 'document_root':settings.STATIC_ROOT }),
 )

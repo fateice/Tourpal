@@ -29,10 +29,7 @@ def welcome(request):
         return render_to_response('hithiker/welcome.html')
 
 def index(request):
-    if 'email' in request.POST and 'password' in request.POST:
-        return render_to_response('hithiker/index.html')
-    else:
-        return render_to_response('hithiker/welcome.html')
+    return render_to_response('hithiker/index.html')
 
 def destinations(request):
     return render_to_response('hithiker/destinations.html')
@@ -45,3 +42,6 @@ def contact(request):
 
 def blog(request):
     return render_to_response('hithiker/blog.html')
+
+def register(request):
+    return render_to_response('library/register.html')

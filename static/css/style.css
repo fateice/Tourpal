@@ -44,7 +44,7 @@ body{
 	background:#2C3E50;
 }
 .top-header-left{
-	float:left;
+	float:right;
 	font-size: 0.9em;
 }
 .top-header-left ul li{
@@ -79,9 +79,7 @@ body{
 .top-header-left ul li  p span{
 	background:url(../images/01.png) no-repeat 0px 0px;
 }
-.top-header-right{
-	float:right;
-}
+
 .reg{
 	color:#1DD2AF;
 	transition:0.5s all;

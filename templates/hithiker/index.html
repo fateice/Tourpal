@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>Home</title>
+		<title>主页</title>
 		<link href="/static/css/style.css" rel='stylesheet' type='text/css' />
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
@@ -23,22 +23,7 @@
 				});
 			</script>
 		<!---//script---->
-		<!---smoth-scrlling---->
-			<script type="text/javascript">
-				$(document).ready(function(){
-									$('a[href^="#"]').on('click',function (e) {
-									    e.preventDefault();
-									    var target = this.hash,
-									    $target = $(target);
-									    $('html, body').stop().animate({
-									        'scrollTop': $target.offset().top
-									    }, 1000, 'swing', function () {
-									        window.location.hash = target;
-									    });
-									});
-								});
-				</script>
-		<!---//smoth-scrlling---->
+
 		<!----start-top-nav-script---->
 		<script type="text/javascript" src="/static/js/flexy-menu.js"></script>
 		<script type="text/javascript">$(document).ready(function(){$(".flexy-menu").flexymenu({speed: 400,type: "horizontal",align: "right"});});</script>
@@ -57,19 +42,17 @@
 		<!---//calender-style---->
 	</head>
 	<body>
-		<!----start-wrap---->
-			<!----start-top-header----->
+		<!--start-wrap-->
+			<!--start-top-header-->
 			<div class="top-header" id="header">
 				<div class="wrap">
 				<div class="top-header-left">
 					<ul>
-						<li><a href="#"><span> </span> Agent Login</a></li>
-						<li><a href="#"><span> </span> Agent Login</a></li>
-						<li><p><span> </span>Not a Member ? </p>&nbsp;<a class="reg" href="#"> Register</a></li>
-						<li><p class="contact-info">Call Us Now :815-123-4567</p></li>
+						<li><a href="#"><span> </span>用户</a></li>
 						<div class="clear"> </div>
 					</ul>
 				</div>
+				<!--
 				<div class="top-header-right">
 					<ul>
 						<li><a class="face" href="#"><span> </span></a></li>
@@ -78,7 +61,7 @@
 						<li><a class="pin" href="#"><span> </span></a></li>
 						<div class="clear"> </div>
 					</ul>
-				</div>
+				</div>-->
 				<div class="clear"> </div>
 			</div>
 			</div>
@@ -88,7 +71,7 @@
 				<div class="wrap">
 				<!--- start-logo---->
 				<div class="logo">
-					<a href="/index.html"><img src="/static/images/logo.png" title="voyage" /></a>
+					<a href="/index.html"><img src="/static/images/tourpal.png" title="voyage" /></a>
 				</div>
 				<!--- //End-logo---->
 				<!--- start-top-nav---->
