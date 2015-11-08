@@ -1,0 +1,168 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>主页</title>
+		<link href="/static/css/style.css" rel='stylesheet' type='text/css' />
+		<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+		</script>
+		<script src="/static/js/jquery.min.js"></script>
+		<link rel="stylesheet" href="/static/css/jquery.bxslider.css" type="text/css" />
+		<script src="/static/js/jquery.bxslider.js"></script>
+			<script type="text/javascript">
+				$(document).ready(function(){
+					$('.bxslider').bxSlider({
+						 auto: true,
+ 						 autoControls: true,
+						 minSlides: 4,
+						 maxSlides: 4,
+						 slideWidth:450,
+						 slideMargin: 10
+					});
+				});
+			</script>
+			<script type="text/javascript">
+				$(document).ready(function(){
+									$('a[href^="#"]').on('click',function (e) {
+									    e.preventDefault();
+									    var target = this.hash,
+									    $target = $(target);
+									    $('html, body').stop().animate({
+									        'scrollTop': $target.offset().top
+									    }, 1000, 'swing', function () {
+									        window.location.hash = target;
+									    });
+									});
+								});
+				</script>
+		<!----start-top-nav-script---->
+		<script type="text/javascript" src="/static/js/flexy-menu.js"></script>
+		<script type="text/javascript">$(document).ready(function(){$(".flexy-menu").flexymenu({speed: 400,type: "horizontal",align: "right"});});</script>
+		<!----//End-top-nav-script---->
+		
+		<!--start slider -->
+	    <link rel="stylesheet" href="/static/css/fwslider.css" media="all">
+		<script src="/static/js/jquery-ui.min.js"></script>
+		<script src="/static/js/css3-mediaqueries.js"></script>
+		<script src="/static/js/fwslider.js"></script>
+		<!--end slider -->
+		<!---calender-style---->
+		<link rel="stylesheet" href="/static/css/jquery-ui.css" />
+		<!---//calender-style---->
+		<link rel="stylesheet" href="/static/css/ihover.css" />
+	</head>
+	<body>
+			<!---start-header---->
+			<div class="top-header" id="header">
+				<div class="wrap">
+				<div class="clear"> </div>
+			</div>
+			</div>
+			<div class="header">
+				<div class="wrap">
+				<div class="logo">
+					<a href="/index.html"><img src="/static/images/tourpal.png" title="voyage" /></a>
+				</div>
+			</div>
+    	<div class="userbar">
+    	<div class="ih-item circle effect1"><a href="../userinfo.html">
+        <div class="spinner"></div>
+        <div class="img"><img src="/static/images/d.jpg" alt="img"></div>
+        </a></div>
+            </div>
+				<!--- start-top-nav---->
+				<div class="wrap">
+				<div class="top-nav">
+						<ul class="flexy-menu thick orange">
+							<li class="active"><a href="/index.html">主页</a></li>
+							<li><a href="/destinations.html">路线推荐</a>
+							<li><a href="/match.html">驴友匹配</a></li>
+							<li><a href="/destinations.html">装备推荐</a></li>
+						</ul>
+						<div class="search-box">
+							<div id="sb-search" class="sb-search">
+								<form>
+									<input class="sb-search-input" placeholder="请输入你需要的内容..." type="search" name="search" id="search">
+									<input class="sb-search-submit" type="submit" value="">
+									<span class="sb-icon-search"> </span>
+								</form>
+							</div>
+						</div>
+						
+						<!----search-scripts---->
+						<script src="/static/js/modernizr.custom.js"></script>
+						<script src="/static/js/classie.js"></script>
+						<script src="/static/js/uisearch.js"></script>
+						<script>
+							new UISearch( document.getElementById( 'sb-search' ) );
+						</script>
+						<!----//search-scripts---->
+				</div>
+
+				<!--- //End-top-nav---->
+				<div class="clear"> </div>
+			</div>
+			
+			<!---//End-header---->
+		</div>
+	<div class="wrap2">
+		<div style="margin-top:20px;"><h1 style="display:inline;">个人信息</h1><button type="button" class="btn btn-danger" style="float:right;">修改密码</button></div>
+		<form style="margin:30px;">
+  <div class="form-group">
+    <label>姓名：</label>
+    <input class="form-control" placeholder="Name">
+  </div>
+  <div class="form-group">
+    <label>年龄：</label>
+    <input class="form-control" placeholder="Age">
+  </div>
+  <div class="form-group">
+    <label>性别：</label>
+    <select name="select">
+  		<option value = "0">男</option>
+  		<option value = "1">女</option>
+	</select>
+  </div>
+  <div class="form-group">
+    <label>手机：</label>
+    <input class="form-control" placeholder="Phone">
+  </div>
+  <div class="form-group">
+    <label>城市：</label>
+    <input class="form-control" placeholder="City">
+  </div>
+  <div class="form-group">
+    <label>兴趣爱好：</label>
+    <select name="select">
+  		<option value = "0">自然</option>
+  		<option value = "1">人文</option>
+  		<option value = "2">科学</option>
+	</select>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputFile">头像上传：</label>
+    <input type="file" id="exampleInputFile">
+  </div>
+  <button type="submit" class="btn btn-default">保存</button>
+</form>
+</div>
+
+	<div class="subfooter">
+			<div class="wrap">
+				<ul>
+					<li><a href="index.html">主页</a><span>::</span></li>
+					<li><a href="destinations.html">路线推荐</a><span>::</span></li>
+					<li><a href="match.html">驴友匹配</a><span>::</span></li>
+					<li><a href="destinations.html">装备推荐</a></li>
+					<div class="clear"> </div>
+				</ul>
+				<p class="copy-right">Copyright &copy; 2015.哈工大小司机 All rights reserved.</p>
+				<a class="to-top" href="#header"><span> </span> </a>
+			</div>
+		</div>
+		<!---//End-subfooter---->
+		<!----//End-wrap---->
+	<div style="display:none"><script src='http://v7.cnzz.com/stat.php?id=155540&web_id=155540' language='JavaScript' charset='gb2312'></script></div>
+</body>
+</html>

@@ -34,8 +34,8 @@ def index(request):
 def destinations(request):
     return render_to_response('hithiker/destinations.html')
 
-def criuses(request):
-    return render_to_response('hithiker/criuses.html')
+def match(request):
+    return render_to_response('hithiker/match.html')
 
 def contact(request):
     return render_to_response('hithiker/contact.html')
@@ -44,4 +44,7 @@ def blog(request):
     return render_to_response('hithiker/blog.html')
 
 def register(request):
-    return render_to_response('library/register.html')
+    return render_to_response('hithiker/register.html')
+
+def userinfo(request):
+    return render_to_response('hithiker/userinfo.html')

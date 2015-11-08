@@ -3,11 +3,11 @@
 	<head>
 		<title>主页</title>
 		<link href="/static/css/style.css" rel='stylesheet' type='text/css' />
+		<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 		</script>
 		<script src="/static/js/jquery.min.js"></script>
-		<!---script---->
 		<link rel="stylesheet" href="/static/css/jquery.bxslider.css" type="text/css" />
 		<script src="/static/js/jquery.bxslider.js"></script>
 			<script type="text/javascript">
@@ -22,15 +22,25 @@
 					});
 				});
 			</script>
-		<!---//script---->
-
+			<script type="text/javascript">
+				$(document).ready(function(){
+									$('a[href^="#"]').on('click',function (e) {
+									    e.preventDefault();
+									    var target = this.hash,
+									    $target = $(target);
+									    $('html, body').stop().animate({
+									        'scrollTop': $target.offset().top
+									    }, 1000, 'swing', function () {
+									        window.location.hash = target;
+									    });
+									});
+								});
+				</script>
 		<!----start-top-nav-script---->
 		<script type="text/javascript" src="/static/js/flexy-menu.js"></script>
 		<script type="text/javascript">$(document).ready(function(){$(".flexy-menu").flexymenu({speed: 400,type: "horizontal",align: "right"});});</script>
 		<!----//End-top-nav-script---->
-		<!---webfonts---->
-		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
-		<!---webfonts---->
+		
 		<!--start slider -->
 	    <link rel="stylesheet" href="/static/css/fwslider.css" media="all">
 		<script src="/static/js/jquery-ui.min.js"></script>
@@ -40,81 +50,46 @@
 		<!---calender-style---->
 		<link rel="stylesheet" href="/static/css/jquery-ui.css" />
 		<!---//calender-style---->
+		<link rel="stylesheet" href="/static/css/ihover.css" />
 	</head>
 	<body>
-		<!--start-wrap-->
-			<!--start-top-header-->
+			<!---start-header---->
 			<div class="top-header" id="header">
 				<div class="wrap">
-				<div class="top-header-left">
-					<ul>
-						<li><a href="#"><span> </span>用户</a></li>
-						<div class="clear"> </div>
-					</ul>
-				</div>
-				<!--
-				<div class="top-header-right">
-					<ul>
-						<li><a class="face" href="#"><span> </span></a></li>
-						<li><a class="twit" href="#"><span> </span></a></li>
-						<li><a class="thum" href="#"><span> </span></a></li>
-						<li><a class="pin" href="#"><span> </span></a></li>
-						<div class="clear"> </div>
-					</ul>
-				</div>-->
 				<div class="clear"> </div>
 			</div>
 			</div>
-			<!----//End-top-header----->
-			<!---start-header---->
 			<div class="header">
 				<div class="wrap">
-				<!--- start-logo---->
 				<div class="logo">
 					<a href="/index.html"><img src="/static/images/tourpal.png" title="voyage" /></a>
 				</div>
-				<!--- //End-logo---->
+			</div>
+    	<div class="userbar">
+    	<div class="ih-item circle effect1"><a href="../userinfo.html">
+        <div class="spinner"></div>
+        <div class="img"><img src="/static/images/d.jpg" alt="img"></div>
+        </a></div>
+            </div>
 				<!--- start-top-nav---->
+				<div class="wrap">
 				<div class="top-nav">
 						<ul class="flexy-menu thick orange">
-							<li class="active"><a href="/index.html">Home</a></li>
-							<li><a href="/destinations.html">Destinations</a>
-								<ul>
-								<li><a href="#">Dropdown item</a></li>
-								<li><a href="#">Dropdown item</a></li>
-								<li><a href="#">Dropdown item</a>
-									<ul>
-										<li><a href="#">Dropdown item</a></li>
-										<li><a href="#">Dropdown item</a>
-											<ul>
-												<li><a href="#">Dropdown item</a></li>
-												<li><a href="#">Dropdown item</a></li>
-												<li><a href="#">Dropdown item</a></li>
-												<li><a href="#">Dropdown item</a></li>
-											</ul>
-										</li>
-										<li><a href="#">Dropdown item</a></li>
-										<li><a href="#">Dropdown item</a></li>
-									</ul>
-								</li>
-								<li><a href="#">Dropdown item</a></li>
-								<li><a href="#">Dropdown item</a></li>
-							</ul>
-							</li>
-							<li><a href="/criuses.html">Criuses</a></li>
-							<li><a href="/destinations.html">Specials</a></li>
-							<li><a href="/destinations.html">Holidays</a></li>
-							<li><a href="/blog.html">Blog</a></li>
+							<li class="active"><a href="/index.html">主页</a></li>
+							<li><a href="/destinations.html">路线推荐</a>
+							<li><a href="/match.html">驴友匹配</a></li>
+							<li><a href="/destinations.html">装备推荐</a></li>
 						</ul>
 						<div class="search-box">
 							<div id="sb-search" class="sb-search">
 								<form>
-									<input class="sb-search-input" placeholder="Enter your search term..." type="search" name="search" id="search">
+									<input class="sb-search-input" placeholder="请输入你需要的内容..." type="search" name="search" id="search">
 									<input class="sb-search-submit" type="submit" value="">
 									<span class="sb-icon-search"> </span>
 								</form>
 							</div>
 						</div>
+						
 						<!----search-scripts---->
 						<script src="/static/js/modernizr.custom.js"></script>
 						<script src="/static/js/classie.js"></script>
@@ -124,9 +99,11 @@
 						</script>
 						<!----//search-scripts---->
 				</div>
+
 				<!--- //End-top-nav---->
 				<div class="clear"> </div>
 			</div>
+			
 			<!---//End-header---->
 		</div>
 		<!----start-images-slider---->
@@ -160,7 +137,47 @@
 		            </div>
 		            <!-- /Duplicate to create more slides -->
 		            <div class="slide">
-		                <img src="/static/images/slider-bg.jpg" alt=""/>
+		                <img src="/static/images/bg1.jpg" alt=""/>
+		                <div class="slide_content">
+		                     <div class="slide_content_wrap">
+		                        <!-- Text title -->
+		                        <h4 class="title">To travel is to live</h4>
+		                        <!-- /Text title -->
+		                        <!-- Text description -->
+		                        <p class="description">You Don't Need Magic to Disappear. All you need is a destination.</p>
+		                        <!-- /Text description -->
+		                        <div class="slide-btns description">
+		                        	<ul>
+		                        		<li><a class="mapbtn" href="#">Show on the map </a></li>
+		                        		<li><a class="minfo" href="#">More info </a></li>
+		                        		<div class="clear"> </div>
+		                        	</ul>
+		                        </div>
+		                    </div>
+		                </div>
+		            </div>
+		             <div class="slide">
+		                <img src="/static/images/bg2.jpg" alt=""/>
+		                <div class="slide_content">
+		                     <div class="slide_content_wrap">
+		                        <!-- Text title -->
+		                        <h4 class="title">To travel is to live</h4>
+		                        <!-- /Text title -->
+		                        <!-- Text description -->
+		                        <p class="description">You Don't Need Magic to Disappear. All you need is a destination.</p>
+		                        <!-- /Text description -->
+		                        <div class="slide-btns description">
+		                        	<ul>
+		                        		<li><a class="mapbtn" href="#">Show on the map </a></li>
+		                        		<li><a class="minfo" href="#">More info </a></li>
+		                        		<div class="clear"> </div>
+		                        	</ul>
+		                        </div>
+		                    </div>
+		                </div>
+		            </div>
+		             <div class="slide">
+		                <img src="/static/images/bg3.jpg" alt=""/>
 		                <div class="slide_content">
 		                     <div class="slide_content_wrap">
 		                        <!-- Text title -->
@@ -191,8 +208,8 @@
 		<div class="find-place">
 			<div class="wrap">
 				<div class="p-h">
-					<span>FIND YOUR</span>
-					<label>HOLYDAYS</label>
+					<span>寻找你的</span>
+					<label>路线</label>
 				</div>
 				<!---strat-date-piker---->
 				  <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
@@ -204,10 +221,10 @@
 				<!---/End-date-piker---->
 				<div class="p-ww">
 					<form>
-						<span> Where</span>
-						<input class="dest" type="text" value="Distination" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Distination';}">
-						<span> When</span>
-						<input class="date" id="datepicker" type="text" value="Select date" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Select date';}">
+						<span> 地点</span>
+						<input class="dest" type="text" value="哈尔滨">
+						<span> 日期</span>
+						<input class="date" id="datepicker" type="text" value="请选择日期" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '请选择日期';}">
 						<input type="submit" value="Search" />
 					</form>
 				</div>
@@ -218,8 +235,8 @@
 		<!----start-offers---->
 		<div class="offers">
 			<div class="offers-head">
-				<h3>Special Offers</h3>
-				<p>Best 2014 packages where people love to stay!</p>
+				<h3>景点推荐</h3>
+				<p>哈尔滨最好玩的景点！</p>
 			</div>
 			<!-- start content_slider -->
 			<!-- FlexSlider -->
@@ -247,14 +264,13 @@
 				 <section class="slider">
 		        <div class="flexslider carousel">
 		          <ul class="slides">
-		            <li onclick="location.href='#';">
-		  	    	    <img src="/static/images/p1.jpg" />
+		            <li onclick="location.href='http://lvyou.baidu.com/bingxuedashijie';">
+		  	    	    <img src="/static/images/harbin1.jpg" />
 		  	    	    <!----place-caption-info---->
 		  	    	    <div class="caption-info">
 		  	    	    	 <div class="caption-info-head">
 		  	    	    	 	<div class="caption-info-head-left">
-			  	    	    	 	<h4><a href="#">Hong Kong & Macau</a></h4>
-			  	    	    	 	<span>Bonus Extras!</span>
+			  	    	    	 	<h4><a href="http://lvyou.baidu.com/bingxuedashijie">冰雪大世界</a></h4>
 		  	    	    	 	</div>
 		  	    	    	 	<div class="caption-info-head-right">
 		  	    	    	 		<span> </span>
@@ -264,14 +280,13 @@
 		  	    	    </div>
 		  	    	     <!----//place-caption-info---->
 		  	    		</li>
-		  	    		 <li onclick="location.href='#';">
-		  	    	    <img src="/static/images/p2.jpg" />
+		  	    		 <li onclick="location.href='http://lvyou.baidu.com/shengsuofeiyajiaotang';">
+		  	    	    <img src="/static/images/harbin2.jpg" />
 		  	    	    <!----place-caption-info---->
 		  	    	    <div class="caption-info">
 		  	    	    	 <div class="caption-info-head">
 		  	    	    	 	<div class="caption-info-head-left">
-			  	    	    	 	<h4><a href="#">Hong Kong & Macau</a></h4>
-			  	    	    	 	<span>Bonus Extras!</span>
+			  	    	    	 	<h4><a href="http://lvyou.baidu.com/shengsuofeiyajiaotang">圣索菲亚教堂</a></h4>
 		  	    	    	 	</div>
 		  	    	    	 	<div class="caption-info-head-right">
 		  	    	    	 		<span> </span>
@@ -281,14 +296,13 @@
 		  	    	    </div>
 		  	    	     <!----//place-caption-info---->
 		  	    		</li>
-		  	    		 <li onclick="location.href='#';">
-		  	    	    <img src="/static/images/p3.jpg" />
+		  	    		 <li onclick="location.href='http://lvyou.baidu.com/haerbintaiyangdao';">
+		  	    	    <img src="/static/images/harbin3.jpg" />
 		  	    	    <!----place-caption-info---->
 		  	    	    <div class="caption-info">
 		  	    	    	 <div class="caption-info-head">
 		  	    	    	 	<div class="caption-info-head-left">
-			  	    	    	 	<h4><a href="#">Hong Kong & Macau</a></h4>
-			  	    	    	 	<span>Bonus Extras!</span>
+			  	    	    	 	<h4><a href="http://lvyou.baidu.com/haerbintaiyangdao">太阳岛</a></h4>
 		  	    	    	 	</div>
 		  	    	    	 	<div class="caption-info-head-right">
 		  	    	    	 		<span> </span>
@@ -298,14 +312,13 @@
 		  	    	    </div>
 		  	    	     <!----//place-caption-info---->
 		  	    		</li>
-		  	    		 <li onclick="location.href='#';">
-		  	    	    <img src="/static/images/p4.jpg" />
+		  	    		 <li onclick="location.href='http://lvyou.baidu.com/zhongyangdajie?&request_id=2548509355&lowflow=1&idx=3';">
+		  	    	    <img src="/static/images/harbin4.jpg" />
 		  	    	    <!----place-caption-info---->
 		  	    	    <div class="caption-info">
 		  	    	    	 <div class="caption-info-head">
 		  	    	    	 	<div class="caption-info-head-left">
-			  	    	    	 	<h4><a href="#">Hong Kong & Macau</a></h4>
-			  	    	    	 	<span>Bonus Extras!</span>
+			  	    	    	 	<h4><a href="http://lvyou.baidu.com/zhongyangdajie?&request_id=2548509355&lowflow=1&idx=3">中央大街</a></h4>
 		  	    	    	 	</div>
 		  	    	    	 	<div class="caption-info-head-right">
 		  	    	    	 		<span> </span>
@@ -315,14 +328,13 @@
 		  	    	    </div>
 		  	    	     <!----//place-caption-info---->
 		  	    		</li>
-		            <li onclick="location.href='#';">
-		  	    	    <img src="/static/images/p5.jpg" />
+		            <li onclick="location.href='http://lvyou.baidu.com/haerbinjidiguan?&request_id=2548509355&lowflow=1&idx=4';">
+		  	    	    <img src="/static/images/harbin5.jpg" />
 		  	    	    <!----place-caption-info---->
 		  	    	    <div class="caption-info">
 		  	    	    	 <div class="caption-info-head">
 		  	    	    	 	<div class="caption-info-head-left">
-			  	    	    	 	<h4><a href="#">Hong Kong & Macau</a></h4>
-			  	    	    	 	<span>Bonus Extras!</span>
+			  	    	    	 	<h4><a href="http://lvyou.baidu.com/haerbinjidiguan?&request_id=2548509355&lowflow=1&idx=4">哈尔滨极地馆</a></h4>
 		  	    	    	 	</div>
 		  	    	    	 	<div class="caption-info-head-right">
 		  	    	    	 		<span> </span>
@@ -332,14 +344,13 @@
 		  	    	    </div>
 		  	    	     <!----//place-caption-info---->
 		  	    		</li>
-		  	    		 <li onclick="location.href='#';">
-		  	    	    <img src="/static/images/p6.jpg" />
+		  	    		 <li onclick="location.href='http://lvyou.baidu.com/haerbinyouleyuan?&request_id=2548509355&lowflow=1&idx=5';">
+		  	    	    <img src="/static/images/harbin6.jpg" />
 		  	    	    <!----place-caption-info---->
 		  	    	    <div class="caption-info">
 		  	    	    	 <div class="caption-info-head">
 		  	    	    	 	<div class="caption-info-head-left">
-			  	    	    	 	<h4><a href="#">Hong Kong & Macau</a></h4>
-			  	    	    	 	<span>Bonus Extras!</span>
+			  	    	    	 	<h4><a href="http://lvyou.baidu.com/haerbinyouleyuan?&request_id=2548509355&lowflow=1&idx=5">哈尔滨游乐园</a></h4>
 		  	    	    	 	</div>
 		  	    	    	 	<div class="caption-info-head-right">
 		  	    	    	 		<span> </span>
@@ -349,14 +360,13 @@
 		  	    	    </div>
 		  	    	     <!----//place-caption-info---->
 		  	    		</li>
-		  	    		 <li onclick="location.href='#';">
-		  	    	    <img src="/static/images/p1.jpg" />
+		  	    		 <li onclick="location.href='http://lvyou.baidu.com/dongbeihulinyuan?&request_id=2548509355&lowflow=1&idx=6';">
+		  	    	    <img src="/static/images/harbin7.jpg" />
 		  	    	    <!----place-caption-info---->
 		  	    	    <div class="caption-info">
 		  	    	    	 <div class="caption-info-head">
 		  	    	    	 	<div class="caption-info-head-left">
-			  	    	    	 	<h4><a href="#">Hong Kong & Macau</a></h4>
-			  	    	    	 	<span>Bonus Extras!</span>
+			  	    	    	 	<h4><a href="http://lvyou.baidu.com/dongbeihulinyuan?&request_id=2548509355&lowflow=1&idx=6">东北虎林园</a></h4>
 		  	    	    	 	</div>
 		  	    	    	 	<div class="caption-info-head-right">
 		  	    	    	 		<span> </span>
@@ -366,14 +376,13 @@
 		  	    	    </div>
 		  	    	     <!----//place-caption-info---->
 		  	    		</li>
-		  	    		 <li onclick="location.href='#';">
-		  	    	    <img src="/static/images/p2.jpg" />
+		  	    		 <li onclick="location.href='http://lvyou.baidu.com/suofeiyaguangchang?&request_id=2548509355&lowflow=1&idx=7';">
+		  	    	    <img src="/static/images/harbin8.jpg" />
 		  	    	    <!----place-caption-info---->
 		  	    	    <div class="caption-info">
 		  	    	    	 <div class="caption-info-head">
 		  	    	    	 	<div class="caption-info-head-left">
-			  	    	    	 	<h4><a href="#">Hong Kong & Macau</a></h4>
-			  	    	    	 	<span>Bonus Extras!</span>
+			  	    	    	 	<h4><a href="http://lvyou.baidu.com/suofeiyaguangchang?&request_id=2548509355&lowflow=1&idx=7">索菲亚广场</a></h4>
 		  	    	    	 	</div>
 		  	    	    	 	<div class="caption-info-head-right">
 		  	    	    	 		<span> </span>
@@ -383,14 +392,13 @@
 		  	    	    </div>
 		  	    	     <!----//place-caption-info---->
 		  	    		</li>
-		             <li onclick="location.href='#';">
-		  	    	    <img src="/static/images/p3.jpg" />
+		             <li onclick="location.href='http://lvyou.baidu.com/longta?&request_id=2548509355&lowflow=1&idx=8';">
+		  	    	    <img src="/static/images/harbin9.jpg" />
 		  	    	    <!----place-caption-info---->
 		  	    	    <div class="caption-info">
 		  	    	    	 <div class="caption-info-head">
 		  	    	    	 	<div class="caption-info-head-left">
-			  	    	    	 	<h4><a href="#">Hong Kong & Macau</a></h4>
-			  	    	    	 	<span>Bonus Extras!</span>
+			  	    	    	 	<h4><a href="http://lvyou.baidu.com/longta?&request_id=2548509355&lowflow=1&idx=8">龙塔</a></h4>
 		  	    	    	 	</div>
 		  	    	    	 	<div class="caption-info-head-right">
 		  	    	    	 		<span> </span>
@@ -400,14 +408,13 @@
 		  	    	    </div>
 		  	    	     <!----//place-caption-info---->
 		  	    		</li>
-		  	    	 <li onclick="location.href='#';">
-		  	    	    <img src="/static/images/p4.jpg" />
+		  	    	 <li onclick="location.href='http://lvyou.baidu.com/eluosifengqingxiaozhen?&request_id=2548509355&lowflow=1&idx=9';">
+		  	    	    <img src="/static/images/harbin10.jpg" />
 		  	    	    <!----place-caption-info---->
 		  	    	    <div class="caption-info">
 		  	    	    	 <div class="caption-info-head">
 		  	    	    	 	<div class="caption-info-head-left">
-			  	    	    	 	<h4><a href="#">Hong Kong & Macau</a></h4>
-			  	    	    	 	<span>Bonus Extras!</span>
+			  	    	    	 	<h4><a href="http://lvyou.baidu.com/eluosifengqingxiaozhen?&request_id=2548509355&lowflow=1&idx=9">俄罗斯风情小镇</a></h4>
 		  	    	    	 	</div>
 		  	    	    	 	<div class="caption-info-head-right">
 		  	    	    	 		<span> </span>
@@ -417,14 +424,13 @@
 		  	    	    </div>
 		  	    	     <!----//place-caption-info---->
 		  	    		</li>
-		  	    		 <li onclick="location.href='#';">
-		  	    	    <img src="/static/images/p5.jpg" />
+		  	    		 <li onclick="location.href='http://lvyou.baidu.com/yabulihuaxuechang?&request_id=2548509355&lowflow=1&idx=10';">
+		  	    	    <img src="/static/images/harbin11.jpg" />
 		  	    	    <!----place-caption-info---->
 		  	    	    <div class="caption-info">
 		  	    	    	 <div class="caption-info-head">
 		  	    	    	 	<div class="caption-info-head-left">
-			  	    	    	 	<h4><a href="#">Hong Kong & Macau</a></h4>
-			  	    	    	 	<span>Bonus Extras!</span>
+			  	    	    	 	<h4><a href="http://lvyou.baidu.com/yabulihuaxuechang?&request_id=2548509355&lowflow=1&idx=10">亚布力滑雪场</a></h4>
 		  	    	    	 	</div>
 		  	    	    	 	<div class="caption-info-head-right">
 		  	    	    	 		<span> </span>
@@ -434,14 +440,13 @@
 		  	    	    </div>
 		  	    	     <!----//place-caption-info---->
 		  	    		</li>
-		  	    		 <li onclick="location.href='#';">
-		  	    	    <img src="/static/images/p6.jpg" />
+		  	    		 <li onclick="location.href='http://lvyou.baidu.com/haerbinsonghuajiang?&request_id=2548509355&lowflow=1&idx=11';">
+		  	    	    <img src="/static/images/harbin12.jpg" />
 		  	    	    <!----place-caption-info---->
 		  	    	    <div class="caption-info">
 		  	    	    	 <div class="caption-info-head">
 		  	    	    	 	<div class="caption-info-head-left">
-			  	    	    	 	<h4><a href="#">Hong Kong & Macau</a></h4>
-			  	    	    	 	<span>Bonus Extras!</span>
+			  	    	    	 	<h4><a href="http://lvyou.baidu.com/haerbinsonghuajiang?&request_id=2548509355&lowflow=1&idx=11">松花江</a></h4>
 		  	    	    	 	</div>
 		  	    	    	 	<div class="caption-info-head-right">
 		  	    	    	 		<span> </span>
@@ -495,134 +500,17 @@
 				</div>
 		<!---//End-holiday-types---->
 		<!----//End-images-slider---->
-		<!----start-clients---->
-		<div class="clients">
-			<div class="client-head">
-				<h3>Happy Clients</h3>
-				<span>what customer say about us and why love our services!</span>
-			</div>
-			<div class="client-grids">
-				<ul class="bxslider">
-				  <li>
-				  	<p>Lorem Ipsum is simply dummy text of the printing and typeset industry. Lorem Ipsum has been the industry's standard dummy text ever hen an with new version look.</p>
-				  	<a href="#">Client Name</a>
-				  	<span>United States</span>
-				  	<label> </label>
-				  </li>
-				  <li>
-				  	<p>Lorem Ipsum is simply dummy text of the printing and typeset industry. Lorem Ipsum has been the industry's standard dummy text ever hen an with new version look.</p>
-				  	<a href="#">Client Name</a>
-				  	<span>United States</span>
-				  	<label> </label>
-				  </li>
-				  <li>
-				  	<p>Lorem Ipsum is simply dummy text of the printing and typeset industry. Lorem Ipsum has been the industry's standard dummy text ever hen an with new version look.</p>
-				  	<a href="#">Client Name</a>
-				  	<span>United States</span>
-				  	<label> </label>
-				  </li>
-				  <li>
-				  	<p>Lorem Ipsum is simply dummy text of the printing and typeset industry. Lorem Ipsum has been the industry's standard dummy text ever hen an with new version look.</p>
-				  	<a href="#">Client Name</a>
-				  	<span>United States</span>
-				  	<label> </label>
-				  </li>
-				  <li>
-				  	<p>Lorem Ipsum is simply dummy text of the printing and typeset industry. Lorem Ipsum has been the industry's standard dummy text ever hen an with new version look.</p>
-				  	<a href="#">Client Name</a>
-				  	<span>United States</span>
-				  	<label> </label>
-				  </li>
-				</ul>
-			</div>
-		</div>
-		<!----//End-clients---->
-		<!----start-footer---->
-		<div class="footer">
-			<div class="wrap">
-			<div class="footer-grids">
-				<div class="footer-grid Newsletter">
-					<h3>News letter </h3>
-					<p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore.</p>
-					<form>
-						<input type="text" placeholder="Subscribes.." /> <input type="submit" value="GO" />
-					</form>
-				</div>
-				<div class="footer-grid Newsletter">
-					<h3>Latest News </h3>
-					<div class="news">
-						<div class="news-pic">
-							<img src="/static/images/f01.jpg" title="news-pic1" /> 
-						</div>
-						<div class="news-info">
-							<a href="#">Postformat Gallery: Multiple images</a>
-							<span>December 12, 2012 - 9:11 pm</span>
-						</div>
-						<div class="clear"> </div>
-					</div>
-					<div class="news">
-						<div class="news-pic">
-							<img src="/static/images/f01.jpg" title="news-pic1" /> 
-						</div>
-						<div class="news-info">
-							<a href="#">Postformat Gallery: Multiple images</a>
-							<span>December 12, 2012 - 9:11 pm</span>
-						</div>
-						<div class="clear"> </div>
-					</div>
-				</div>
-				<div class="footer-grid tags">
-					<h3>Tags</h3>
-					<ul>
-						<li><a href="#">Agent login</a></li>
-						<li><a href="#">Customer Login</a></li>
-						<li><a href="#">Not a Member?</a></li>
-						<li><a href="#">Contact</a></li>
-						<li><a href="#">New Horizons</a></li>
-						<li><a href="#">Lanscape</a></li>
-						<li><a href="#">Tags</a></li>
-						<li><a href="#">Nice</a></li>
-						<li><a href="#">Some</a></li>
-						<li><a href="#">Portrait</a></li>
-						<div class="clear"> </div>
-					</ul>
-				</div>
-				<div class="footer-grid address">
-					<h3>Address </h3>
-					<div class="address-info">
-						<span>DieSachbearbeiter Schonhauser </span>
-						<span>Allee 167c,10435 Berlin Germany</span>
-						<span><i>E-mail:</i><a href="mailto:moin@blindtextgenerator.de">moin@blindtextgenerator.de</a></span>
-					</div>
-					<div class="footer-social-icons">
-						<ul>
-							<li><a class="face1 simptip-position-bottom simptip-movable" data-tooltip="facebook" href="#"><span> </span></a></li>
-							<li><a class="twit1 simptip-position-bottom simptip-movable" data-tooltip="twitter" href="#"><span> </span></a></li>
-							<li><a class="tub1 simptip-position-bottom simptip-movable" data-tooltip="tumblr" href="#"><span> </span></a></li>
-							<li><a class="pin1 simptip-position-bottom simptip-movable" data-tooltip="pinterest" href="#"><span> </span></a></li>
-							<div class="clear"> </div>
-						</ul>
-					</div>
-				</div>
-				<div class="clear"> </div>
-			</div>
-			</div>
-		</div>
-		<!----//End-footer---->
-		<!---start-subfooter---->
+
 		<div class="subfooter">
 			<div class="wrap">
 				<ul>
-					<li><a href="index.html">Home</a><span>::</span></li>
-					<li><a href="destinations.html">Destinations</a><span>::</span></li>
-					<li><a href="criuses.html">Criuses</a><span>::</span></li>
-					<li><a href="destinations.html">Specils</a><span>::</span></li>
-					<li><a href="destinations.html">Holidays</a><span>::</span></li>
-					<li><a href="blog.html">Blog</a><span>::</span></li>
-					<li><a href="contact.html">Contact Us</a></li>
+					<li><a href="index.html">主页</a><span>::</span></li>
+					<li><a href="destinations.html">路线推荐</a><span>::</span></li>
+					<li><a href="match.html">驴友匹配</a><span>::</span></li>
+					<li><a href="destinations.html">装备推荐</a></li>
 					<div class="clear"> </div>
 				</ul>
-				<p class="copy-right">Copyright &copy; 2014.Company name All rights reserved.<a target="_blank" href="http://sc.chinaz.com/moban/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a></p>
+				<p class="copy-right">Copyright &copy; 2015.哈工大小司机 All rights reserved.</p>
 				<a class="to-top" href="#header"><span> </span> </a>
 			</div>
 		</div>
