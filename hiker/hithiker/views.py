@@ -47,6 +47,7 @@ def register(request):
     return render_to_response('hithiker/register.html')
 
 def userinfo(request):
+<<<<<<< HEAD
     return render_to_response('hithiker/userinfo.html')
 
 def criuses(request):
@@ -54,3 +55,6 @@ def criuses(request):
 
 def group(request):
     return render_to_response('hithiker/group.html')
+=======
+    return render_to_response('hithiker/userinfo.html')
+>>>>>>> 869ef16ed005508eb184b267944f817b717b3901
