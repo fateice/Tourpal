@@ -1,0 +1,336 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>主页</title>
+		<link href="/static/css/style.css" rel='stylesheet' type='text/css' />
+		<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+		</script>
+		<script src="/static/js/jquery.min.js"></script>
+		<link rel="stylesheet" href="/static/css/jquery.bxslider.css" type="text/css" />
+		<script src="/static/js/jquery.bxslider.js"></script>
+			<script type="text/javascript">
+				$(document).ready(function(){
+					$('.bxslider').bxSlider({
+						 auto: true,
+ 						 autoControls: true,
+						 minSlides: 4,
+						 maxSlides: 4,
+						 slideWidth:450,
+						 slideMargin: 10
+					});
+				});
+			</script>
+			<script type="text/javascript">
+				$(document).ready(function(){
+									$('a[href^="#"]').on('click',function (e) {
+									    e.preventDefault();
+									    var target = this.hash,
+									    $target = $(target);
+									    $('html, body').stop().animate({
+									        'scrollTop': $target.offset().top
+									    }, 1000, 'swing', function () {
+									        window.location.hash = target;
+									    });
+									});
+								});
+				</script>
+		<!----start-top-nav-script---->
+		<script type="text/javascript" src="/static/js/flexy-menu.js"></script>
+		<script type="text/javascript">$(document).ready(function(){$(".flexy-menu").flexymenu({speed: 400,type: "horizontal",align: "right"});});</script>
+		<!----//End-top-nav-script---->
+		
+		<!--start slider -->
+	    <link rel="stylesheet" href="/static/css/fwslider.css" media="all">
+		<script src="/static/js/jquery-ui.min.js"></script>
+		<script src="/static/js/css3-mediaqueries.js"></script>
+		<script src="/static/js/fwslider.js"></script>
+		<!--end slider -->
+		<!---calender-style---->
+		<link rel="stylesheet" href="/static/css/jquery-ui.css" />
+		<!---//calender-style---->
+		<link rel="stylesheet" href="/static/css/ihover.css" />
+	<link rel="stylesheet" type="text/css" href="/static/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" href="/static/css/default.css">
+	<link rel="stylesheet" href="/static/css/common.css">
+	<style>
+    a {
+      color: #e5e616;
+    }
+    a:hover {
+      color: #88a7f7;
+    }
+    .bg{
+    	background: url(/static/images/groupbg.jpg) no-repeat center top fixed;
+    	-webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+    }
+    .gwrap{
+    	padding-bottom: 50px;
+    }
+    .gwrap > h1 {
+      color: rgb(221, 142, 22);
+      margin: 14px auto 0;
+    }
+    #showcase {
+      height: 570px;
+      overflow: visible !important;
+    }
+    .card {
+      width: 260px;
+      padding: 12px;
+      top:40px;
+      text-align: center;
+      background-color: rgba(148,137,131,0.8);
+      border: 2px white dotted;
+      border-radius: 12px;
+    }
+    .card h2 {
+      margin: 0 0 7px 0;
+    }
+    .card a {
+      font-size: 18px;
+      display: block;
+    }
+    .card p {
+      font-size: 15px;
+    }
+    .nav {
+      width: 64px;
+      height: 134px;
+      color: #ccc;
+      font: bold 3em "Lucida Grande";
+      text-align: center;
+      text-shadow: 0px 1px 0px #f5f5f5;
+      background: rgba(150, 150, 150, 0.5);
+      border: solid 2px rgba(0, 0, 0, 0.4);
+      -webkit-box-shadow: 0 0 9px 1px rgba(0, 0, 0, 0.45);
+      -moz-box-shadow: 0 0 9px 1px rgba(0, 0, 0, 0.45);
+      box-shadow: 0 0 9px 1px rgba(0, 0, 0, 0.45);
+      cursor: pointer;
+      position: absolute;
+      top: 33%;
+    }
+    .nav:active,
+    .nav.down {
+      background: rgba(120, 120, 120, 0.5);
+      border: solid 2px rgba(0, 0, 0, 0.55);
+    }
+    .nav.left {
+      left: -43px;
+      -webkit-border-radius: 12px 5px 5px 12px;
+      -moz-border-radius: 12px 5px 5px 12px;
+      border-radius: 12px 5px 5px 12px;
+    }
+    .nav.right {
+      right: -43px;
+      -webkit-border-radius: 5px 12px 12px 5px;
+      -moz-border-radius: 5px 12px 12px 5px;
+      border-radius: 5px 12px 12px 5px;
+    }
+    footer hr {
+      width: 6px;
+    }
+    #share {
+      top: -84px;
+    }
+    #credits {
+      top: -78px;
+    }
+    #photo-credits {
+      text-align: center;
+    }
+    #photo-credits h1 {
+      font-size: 1em;
+      margin-top: 0;
+      margin-bottom: 6px;
+    }
+    #photo-credits > ul {
+      list-style: none;
+      padding: 0;
+      margin-top: 0;
+    }
+  </style>
+	</head>
+	<body>
+			<!---start-header---->
+			<div class="top-header" id="header">
+				<div class="wrap">
+				<div class="clear"> </div>
+			</div>
+			</div>
+			<div class="header">
+				<div class="wrap">
+				<div class="logo">
+					<a href="/index.html"><img src="/static/images/tourpal.png" title="voyage" /></a>
+				</div>
+			</div>
+    	<div class="userbar">
+    	<div class="ih-item circle effect1"><a href="../userinfo.html">
+        <div class="spinner"></div>
+        <div class="img"><img src="/static/images/d.jpg" alt="img"></div>
+        </a></div>
+            </div>
+				<!--- start-top-nav---->
+				<div class="wrap">
+				<div class="top-nav">
+						<ul class="flexy-menu thick orange">
+							<li><a href="/index.html">主页</a></li>
+							<li><a href="/destinations.html">路线推荐</a>
+							<li><a href="/match.html">驴友匹配</a></li>
+							<li><a href="/destinations.html">装备推荐</a></li>
+							<li class="active"><a href="/group.html">队伍列表</a></li>
+						</ul>
+						<div class="search-box">
+							<div id="sb-search" class="sb-search">
+								<form>
+									<input class="sb-search-input" placeholder="请输入你需要的内容..." type="search" name="search" id="search">
+									<input class="sb-search-submit" type="submit" value="">
+									<span class="sb-icon-search"> </span>
+								</form>
+							</div>
+						</div>
+						
+						<!----search-scripts---->
+						<script src="/static/js/modernizr.custom.js"></script>
+						<script src="/static/js/classie.js"></script>
+						<script src="/static/js/uisearch.js"></script>
+						<script>
+							new UISearch( document.getElementById( 'sb-search' ) );
+						</script>
+						<!----//search-scripts---->
+				</div>
+
+				<!--- //End-top-nav---->
+				<div class="clear"> </div>
+			</div>
+
+<div class="bg">
+<div class="gwrap">
+      <div id="showcase" class="noselect">
+        <div class="card">
+          <h2>第一小组</h2>
+          <img src="/static/images/1.jpg">
+          <p>
+           团结、奋进、向上，不屈不挠！
+          </p>
+          <a href=""><button type="button" class="btn btn-success" >加入小组</button></a>
+        </div>
+        <div class="card">
+          <h2>第二小组</h2>
+          <img src="/static/images/2.jpg">
+          <p>
+            优秀的团队，只为同样优秀的你！
+          </p>
+          <a href=""><button type="button" class="btn btn-success" >加入小组</button></a>
+        </div>
+        <div class="card">
+          <h2>第三小组</h2>
+          <img src="/static/images/3.jpg">
+          <p>
+            严谨地质疑一切，甚至质疑科学。
+          </p>
+          <a href=""><button type="button" class="btn btn-success" >加入小组</button></a>
+        </div>
+        <div class="card">
+          <h2>第四小组</h2>
+          <img src="/static/images/4.jpg">
+          <p>
+            独立思考世界，永恒追求真理。
+          </p>
+          <a href=""><button type="button" class="btn btn-success" >加入小组</button></a>
+        </div>
+        <div class="card">
+          <h2>第五小组</h2>
+          <img src="/static/images/5.jpg">
+          <p>
+            在蒙昧中划过一道智慧的光芒，那里曾经有我们走过的烙印！
+          </p>
+          <a href=""><button type="button" class="btn btn-success" >加入小组</button></a>
+        </div>
+        <div class="card">
+          <h2>第六小组</h2>
+          <img src="/static/images/6.jpg">
+          <p>
+           行到水穷处，坐看云起时
+          </p>
+          <a href=""><button type="button" class="btn btn-success" >加入小组</button></a>
+        </div>
+      </div>
+      <button class="nav noselect left">
+        &lt;
+      </button>
+      <button class="nav noselect right">
+        &gt;
+      </button>
+    </div>
+
+</div>
+<div class="subfooter">
+			<div class="wrap">
+				<ul>
+					<li><a href="../index.html">主页</a><span>::</span></li>
+					<li><a href="../destinations.html">路线推荐</a><span>::</span></li>
+					<li><a href="../criuses.html">驴友匹配</a><span>::</span></li>
+					<li><a href="../destinations.html">装备推荐</a><span>::</span></li>
+					<li><a href="../group.html">队伍列表</a></li>
+					<div class="clear"> </div>
+				</ul>
+				<p class="copy-right">Copyright &copy; 2015.哈工大小司机 All rights reserved.</p>
+				<a class="to-top" href="#header"><span> </span> </a>
+			</div>
+		</div>
+		<!---//End-subfooter---->
+		<!----//End-wrap---->
+	<div style="display:none"><script src='http://v7.cnzz.com/stat.php?id=155540&web_id=155540' language='JavaScript' charset='gb2312'></script></div>
+
+	<script>window.jQuery || document.write('<script src="/static/js/jquery.min.js"><\/script>')</script>
+  <script src="/static/js/jquery.cloud9carousel.js"></script>
+  <script>
+    $(function() {
+      var showcase = $("#showcase")
+
+      showcase.Cloud9Carousel( {
+        yOrigin: 42,
+        yRadius: 40,
+        itemClass: "card",
+        buttonLeft: $(".nav.left"),
+        buttonRight: $(".nav.right"),
+        bringToFront: true,
+        onLoaded: function() {
+          showcase.css( 'visibility', 'visible' )
+          showcase.css( 'display', 'none' )
+          showcase.fadeIn( 1500 )
+        }
+      } )
+
+      //
+      // Simulate physical button click effect
+      //
+      $('.nav').click( function( e ) {
+        var b = $(e.target).addClass( 'down' )
+        setTimeout( function() { b.removeClass( 'down' ) }, 80 )
+      } )
+
+      $(document).keydown( function( e ) {
+        //
+        // More codes: http://www.javascripter.net/faq/keycodes.htm
+        //
+        switch( e.keyCode ) {
+          /* left arrow */
+          case 37:
+            $('.nav.left').click()
+            break
+
+          /* right arrow */
+          case 39:
+            $('.nav.right').click()
+        }
+      } )
+    })
+  </script>
+</body>
+</html>

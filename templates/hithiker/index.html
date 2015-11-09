@@ -1,158 +1,540 @@
-﻿<!doctype html>
+<!DOCTYPE HTML>
 <html>
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
-	<meta name="renderer" content="webkit">
-	<title>哈工大小司机</title>
-	<style type="text/css">
-		body{color:#222;-webkit-text-size-adjust:none;}
-		body,h1,h2,h3,h4,h5,h6,hr,p,blockquote,dl, dt,dd,ul,ol,li,pre,form,fieldset,legend,button,input,textarea,th,td,iframe{margin:0; padding:0;}
-		h1,h2,h3,h4,h5,h6{font-size:100%;}
-		body,button,input,select,textarea {font-family:Tahoma,Arial,Roboto,”Droid Sans”,”Helvetica Neue”,”Droid Sans Fallback”,”Heiti SC”,sans-self;font-size:62.5%; line-height:1.5;}
-		ol,ul{list-style:none;}
+	<head>
+		<title>主页</title>
+		<link href="/static/css/style.css" rel='stylesheet' type='text/css' />
+		<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+		</script>
+		<script src="/static/js/jquery.min.js"></script>
+		<link rel="stylesheet" href="/static/css/jquery.bxslider.css" type="text/css" />
+		<script src="/static/js/jquery.bxslider.js"></script>
+			<script type="text/javascript">
+				$(document).ready(function(){
+					$('.bxslider').bxSlider({
+						 auto: true,
+ 						 autoControls: true,
+						 minSlides: 4,
+						 maxSlides: 4,
+						 slideWidth:450,
+						 slideMargin: 10
+					});
+				});
+			</script>
+			<script type="text/javascript">
+				$(document).ready(function(){
+									$('a[href^="#"]').on('click',function (e) {
+									    e.preventDefault();
+									    var target = this.hash,
+									    $target = $(target);
+									    $('html, body').stop().animate({
+									        'scrollTop': $target.offset().top
+									    }, 1000, 'swing', function () {
+									        window.location.hash = target;
+									    });
+									});
+								});
+				</script>
+		<!----start-top-nav-script---->
+		<script type="text/javascript" src="/static/js/flexy-menu.js"></script>
+		<script type="text/javascript">$(document).ready(function(){$(".flexy-menu").flexymenu({speed: 400,type: "horizontal",align: "right"});});</script>
+		<!----//End-top-nav-script---->
 		
-		html,body{ width:100%; height:100%; overflow:hidden;}
-		.section-wrap{ width:100%;height:100%;overflow:visible;transition:transform 1s cubic-bezier(0.86,0,0.03,1);-webkit-transition:-webkit-transform 1s cubic-bezier(0.86,0,0.03,1);}
-		.section-wrap .section{ position:relative; width:100%; height:100%; background-position:center center; background-repeat:no-repeat;}
-		.section-wrap .section .title{width:100%;position:absolute;top:10%;color:#fff;font-size:2.4em;text-align:center;}
-		.section-wrap .section .title p{ padding:0 4%;opacity:0}
-		.section-wrap .section .title.active .tit{ opacity:1;transform:translateY(-25px);-webkit-transform:translateY(-25px);transition:all 2s cubic-bezier(0.86,0,0.8,1);-webkit-transition:all 2s cubic-bezier(0.86,0,0.8,1);}
-		/*.section-wrap .section-1{ background-color:#337ab7}*/
-            .section-wrap .section-1 {
-                background-image: url(static/t11.jpg);
-                filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='scale')";
-                -moz-background-size: 100% 100%;
-                background-size: 100% 120%;
-            }
-            .section-wrap .section-2 {
-                background-image: url(static/t2.jpg);
-                filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='scale')";
-                -moz-background-size: 100% 100%;
-                background-size: 100% 120%;
-            }
-		.section-wrap .section-3{ background-color:#5bc0de}
-		.section-wrap .section-4{ background-color:#f0ad4e}
-		.section-wrap .section-5{ background-color:#d9534f}
-		.put-section-0{ transform:translateY(0);-webkit-transform:translateY(0);}
-		.put-section-1{ transform:translateY(-100%);-webkit-transform:translateY(-100%);}
-		.put-section-2{ transform:translateY(-200%);-webkit-transform:translateY(-200%);}
-		.put-section-3{ transform:translateY(-300%);-webkit-transform:translateY(-300%);}
-		.put-section-4{ transform:translateY(-400%);-webkit-transform:translateY(-400%);}
-		.section-btn{ width:14px;position:fixed;right:4%;top:50%;}
-		.section-btn li{ width:14px;height:14px;cursor:pointer;text-indent:-9999px;border-radius:50%;-webkit-border-radius:50%;margin-bottom:12px; background:#BD362F;text-align:center; color:#fff; onsor:pointer;}
-		.section-btn li.on{ background:#fff}
-		.arrow{ opacity:1;animation:arrow 3s cubic-bezier(0.5,0,0.1,1) infinite;-webkit-animation:arrow 3s cubic-bezier(0.5,0,0.1,1) infinite;transform:rotate(-90deg);-webkit-transform:rotate(-90deg); position:absolute;bottom:10px;left:50%;margin-left:-30px;width:60px;height:60px;border-radius:100%;-webkit-border-radius:100%;line-height:60px;text-align:center;font-size:20px;color:#fff;border:1px solid #fff;cursor:pointer;overflow:hidden;}
-		.arrow:hover{ animation-play-state:paused;-webkit-animation-play-state:paused;}
-		@keyframes arrow{ %0,%100{bottom:10px; opacity:1;} 50%{bottom:50px; opacity:.5} }
-		@-webkit-keyframes arrow{ %0,%100{bottom:10px; opacity:1;} 50%{bottom:50px; opacity:.5} }
-	</style>
-	<!--[if lte IE 8]>
-	<style type="text/css">
-		html,body{width:100%; height:100%; overflow:scroll}
-		.section-btn{display:none;}
-	</style>
-	<![endif]-->
-</head>
-<body>
-	<section class="section-wrap">
-		<div class="section section-1">
-			<div class="title active">
-				<p class="tit">喂驴</p>
+		<!--start slider -->
+	    <link rel="stylesheet" href="/static/css/fwslider.css" media="all">
+		<script src="/static/js/jquery-ui.min.js"></script>
+		<script src="/static/js/css3-mediaqueries.js"></script>
+		<script src="/static/js/fwslider.js"></script>
+		<!--end slider -->
+		<!---calender-style---->
+		<link rel="stylesheet" href="/static/css/jquery-ui.css" />
+		<!---//calender-style---->
+		<link rel="stylesheet" href="/static/css/ihover.css" />
+	</head>
+	<body>
+			<!---start-header---->
+			<div class="top-header" id="header">
+				<div class="wrap">
+				<div class="clear"> </div>
 			</div>
-		</div>
-		<div class="section section-2">
-			<div class="title">
-				<p class="tit">2!</p>
 			</div>
-		</div>
-		<div class="section section-3">
-			<div class="title">
-				<p class="tit">3</p>
+			<div class="header">
+				<div class="wrap">
+				<div class="logo">
+					<a href="/index.html"><img src="/static/images/tourpal.png" title="voyage" /></a>
+				</div>
 			</div>
-		</div>
-		<div class="section section-4">
-			<div class="title">
-				<p class="tit">4</p>
-			</div>
-		</div>
-		<div class="section section-5">
-			<div class="title">
-				<p class="tit">随便写写意思下</p>
-			</div>
-		</div>
-	</section>
-	<ul class="section-btn">
-	  <li class="on"></li>
-	  <li></li>
-	  <li></li>
-	  <li></li>
-	  <li></li>
-	</ul>
-	<div class="arrow">&laquo;</div>
+    	<div class="userbar">
+    	<div class="ih-item circle effect1"><a href="../userinfo.html">
+        <div class="spinner"></div>
+        <div class="img"><img src="/static/images/d.jpg" alt="img"></div>
+        </a></div>
+            </div>
+				<!--- start-top-nav---->
+				<div class="wrap">
+				<div class="top-nav">
+						<ul class="flexy-menu thick orange">
+							<li class="active"><a href="/index.html">主页</a></li>
+							<li><a href="/destinations.html">路线推荐</a>
+							<li><a href="/criuses.html">驴友匹配</a></li>
+							<li><a href="/destinations.html">装备推荐</a></li>
+							<li><a href="/group.html">队伍列表</a></li>
+						</ul>
+						<div class="search-box">
+							<div id="sb-search" class="sb-search">
+								<form>
+									<input class="sb-search-input" placeholder="请输入你需要的内容..." type="search" name="search" id="search">
+									<input class="sb-search-submit" type="submit" value="">
+									<span class="sb-icon-search"> </span>
+								</form>
+							</div>
+						</div>
+						
+						<!----search-scripts---->
+						<script src="/static/js/modernizr.custom.js"></script>
+						<script src="/static/js/classie.js"></script>
+						<script src="/static/js/uisearch.js"></script>
+						<script>
+							new UISearch( document.getElementById( 'sb-search' ) );
+						</script>
+						<!----//search-scripts---->
+				</div>
 
-<script type="text/javascript" src="static/js/jquery.min.js"></script>
-<script type="text/javascript">
-	//此处引用：鼠标滚轮mousewheel插件
-	!function(a){"function"==typeof define&&define.amd?define(["jquery"],a):"object"==typeof exports?module.exports=a:a(jQuery)}(function(a){function b(b){var g=b||window.event,h=i.call(arguments,1),j=0,l=0,m=0,n=0,o=0,p=0;if(b=a.event.fix(g),b.type="mousewheel","detail"in g&&(m=-1*g.detail),"wheelDelta"in g&&(m=g.wheelDelta),"wheelDeltaY"in g&&(m=g.wheelDeltaY),"wheelDeltaX"in g&&(l=-1*g.wheelDeltaX),"axis"in g&&g.axis===g.HORIZONTAL_AXIS&&(l=-1*m,m=0),j=0===m?l:m,"deltaY"in g&&(m=-1*g.deltaY,j=m),"deltaX"in g&&(l=g.deltaX,0===m&&(j=-1*l)),0!==m||0!==l){if(1===g.deltaMode){var q=a.data(this,"mousewheel-line-height");j*=q,m*=q,l*=q}else if(2===g.deltaMode){var r=a.data(this,"mousewheel-page-height");j*=r,m*=r,l*=r}if(n=Math.max(Math.abs(m),Math.abs(l)),(!f||f>n)&&(f=n,d(g,n)&&(f/=40)),d(g,n)&&(j/=40,l/=40,m/=40),j=Math[j>=1?"floor":"ceil"](j/f),l=Math[l>=1?"floor":"ceil"](l/f),m=Math[m>=1?"floor":"ceil"](m/f),k.settings.normalizeOffset&&this.getBoundingClientRect){var s=this.getBoundingClientRect();o=b.clientX-s.left,p=b.clientY-s.top}return b.deltaX=l,b.deltaY=m,b.deltaFactor=f,b.offsetX=o,b.offsetY=p,b.deltaMode=0,h.unshift(b,j,l,m),e&&clearTimeout(e),e=setTimeout(c,200),(a.event.dispatch||a.event.handle).apply(this,h)}}function c(){f=null}function d(a,b){return k.settings.adjustOldDeltas&&"mousewheel"===a.type&&b%120===0}var e,f,g=["wheel","mousewheel","DOMMouseScroll","MozMousePixelScroll"],h="onwheel"in document||document.documentMode>=9?["wheel"]:["mousewheel","DomMouseScroll","MozMousePixelScroll"],i=Array.prototype.slice;if(a.event.fixHooks)for(var j=g.length;j;)a.event.fixHooks[g[--j]]=a.event.mouseHooks;var k=a.event.special.mousewheel={version:"3.1.12",setup:function(){if(this.addEventListener)for(var c=h.length;c;)this.addEventListener(h[--c],b,!1);else this.onmousewheel=b;a.data(this,"mousewheel-line-height",k.getLineHeight(this)),a.data(this,"mousewheel-page-height",k.getPageHeight(this))},teardown:function(){if(this.removeEventListener)for(var c=h.length;c;)this.removeEventListener(h[--c],b,!1);else this.onmousewheel=null;a.removeData(this,"mousewheel-line-height"),a.removeData(this,"mousewheel-page-height")},getLineHeight:function(b){var c=a(b),d=c["offsetParent"in a.fn?"offsetParent":"parent"]();return d.length||(d=a("body")),parseInt(d.css("fontSize"),10)||parseInt(c.css("fontSize"),10)||16},getPageHeight:function(b){return a(b).height()},settings:{adjustOldDeltas:!0,normalizeOffset:!0}};a.fn.extend({mousewheel:function(a){return a?this.bind("mousewheel",a):this.trigger("mousewheel")},unmousewheel:function(a){return this.unbind("mousewheel",a)}})});
-	
-	$(function(){
-		var i=0;
-		var $btn = $('.section-btn li'),
-			$wrap = $('.section-wrap'),
-			$arrow = $('.arrow');
-		
-		/*当前页面赋值*/
-		function up(){i++;if(i==$btn.length){i=0};}
-		function down(){i--;if(i<0){i=$btn.length-1};}
-		
-		/*页面滑动*/
-		function run(){
-			$btn.eq(i).addClass('on').siblings().removeClass('on');	
-			$wrap.attr("class","section-wrap").addClass(function() { return "put-section-"+i; }).find('.section').eq(i).find('.title').addClass('active');
-		};
-		
-		/*右侧按钮点击*/
-		$btn.each(function(index) {
-			$(this).click(function(){
-				i=index;
-				run();
-			})
-		});
-		
-		/*翻页按钮点击*/
-		$arrow.one('click',go);
-		function go(){
-			up();run();	
-			setTimeout(function(){$arrow.one('click',go)},1000)
-		};
-		
-		/*响应鼠标*/
-		$wrap.one('mousewheel',mouse_);
-		function mouse_(event){
-			if(event.deltaY<0) {up()}
-			else{down()}
-			run();
-			setTimeout(function(){$wrap.one('mousewheel',mouse_)},1000)
-		};
-		
-		/*响应键盘上下键*/
-		$(document).one('keydown',k);
-		function k(event){
-			var e=event||window.event;
-			var key=e.keyCode||e.which||e.charCode;
-			switch(key)	{
-				case 38: down();run();	
-				break;
-				case 40: up();run();	
-				break;
-			};
-			setTimeout(function(){$(document).one('keydown',k)},1000);
-		}
-	});
-</script>
+				<!--- //End-top-nav---->
+				<div class="clear"> </div>
+			</div>
+			
+			<!---//End-header---->
+		</div>
+		<!----start-images-slider---->
+		<div class="images-slider">
+			<!-- start slider -->
+		    <div id="fwslider">
+		        <div class="slider_container">
+		            <!-- /Duplicate to create more slides -->
+		            <div class="slide">
+		                <img src="/static/images/bg1.jpg" alt=""/>
+		                <div class="slide_content">
+		                     <div class="slide_content_wrap">
+		                        <!-- Text title -->
+		                        <h4 class="title">背上背包，明天就出发吧！</h4>
+		                        <!-- /Text title -->
+		                        <!-- Text description -->
+		                        <p class="description">时光匆匆，岁月无情，偷走了青春，苍老了颜容，远逝了年华，熬尽了生命。</p>
+		                        <!-- /Text description -->
+		                        <div class="slide-btns description">
+		                        	<ul>
+		                        		<li><a class="mapbtn" href="../destinations.html">路线推荐</a></li>
+		                        		<li><a class="minfo" href="../match.html">同伴推荐</a></li>
+		                        		<div class="clear"> </div>
+		                        	</ul>
+		                        </div>
+		                    </div>
+		                </div>
+		            </div>
+		             <div class="slide">
+		                <img src="/static/images/bg2.jpg" alt=""/>
+		                <div class="slide_content">
+		                     <div class="slide_content_wrap">
+		                        <!-- Text title -->
+		                        <h4 class="title">背上背包，明天就出发吧！</h4>
+		                        <!-- /Text title -->
+		                        <!-- Text description -->
+		                        <p class="description">时光匆匆，岁月无情，偷走了青春，苍老了颜容，远逝了年华，熬尽了生命。</p>
+		                        <!-- /Text description -->
+		                        <div class="slide-btns description">
+		                        	<ul>
+		                        		<li><a class="mapbtn" href="../destinations.html">路线推荐</a></li>
+		                        		<li><a class="minfo" href="../match.html">同伴推荐</a></li>
+		                        		<div class="clear"> </div>
+		                        	</ul>
+		                        </div>
+		                    </div>
+		                </div>
+		            </div>
+		             <div class="slide">
+		                <img src="/static/images/bg3.jpg" alt=""/>
+		                <div class="slide_content">
+		                     <div class="slide_content_wrap">
+		                        <!-- Text title -->
+		                        <h4 class="title">背上背包，明天就出发吧！</h4>
+		                        <!-- /Text title -->
+		                        <!-- Text description -->
+		                        <p class="description">时光匆匆，岁月无情，偷走了青春，苍老了颜容，远逝了年华，熬尽了生命。</p>
+		                        <!-- /Text description -->
+		                        <div class="slide-btns description">
+		                        	<ul>
+		                        		<li><a class="mapbtn" href="../destinations.html">路线推荐</a></li>
+		                        		<li><a class="minfo" href="../match.html">同伴推荐</a></li>
+		                        		<div class="clear"> </div>
+		                        	</ul>
+		                        </div>
+		                    </div>
+		                </div>
+		            </div>
+		            <div class="slide">
+		                <img src="/static/images/bg4.jpg" alt=""/>
+		                <div class="slide_content">
+		                     <div class="slide_content_wrap">
+		                        <!-- Text title -->
+		                        <h4 class="title">背上背包，明天就出发吧！</h4>
+		                        <!-- /Text title -->
+		                        <!-- Text description -->
+		                        <p class="description">时光匆匆，岁月无情，偷走了青春，苍老了颜容，远逝了年华，熬尽了生命。</p>
+		                        <!-- /Text description -->
+		                        <div class="slide-btns description">
+		                        	<ul>
+		                        		<li><a class="mapbtn" href="../destinations.html">路线推荐</a></li>
+		                        		<li><a class="minfo" href="../match.html">同伴推荐</a></li>
+		                        		<div class="clear"> </div>
+		                        	</ul>
+		                        </div>
+		                    </div>
+		                </div>
+		            </div>
+		            <div class="slide">
+		                <img src="/static/images/bg5.jpg" alt=""/>
+		                <div class="slide_content">
+		                     <div class="slide_content_wrap">
+		                        <!-- Text title -->
+		                        <h4 class="title">背上背包，明天就出发吧！</h4>
+		                        <!-- /Text title -->
+		                        <!-- Text description -->
+		                        <p class="description">时光匆匆，岁月无情，偷走了青春，苍老了颜容，远逝了年华，熬尽了生命。</p>
+		                        <!-- /Text description -->
+		                        <div class="slide-btns description">
+		                        	<ul>
+		                        		<li><a class="mapbtn" href="../destinations.html">路线推荐</a></li>
+		                        		<li><a class="minfo" href="../match.html">同伴推荐</a></li>
+		                        		<div class="clear"> </div>
+		                        	</ul>
+		                        </div>
+		                    </div>
+		                </div>
+		            </div>
+		            <!--/slide -->
+		        </div>
+		        <div class="timers"> </div>
+		        <div class="slidePrev"><span> </span></div>
+		        <div class="slideNext"><span> </span></div>
+		    </div>
+		    <!--/slider -->
+		</div>
+		<!----start-find-place---->
+		<div class="find-place">
+			<div class="wrap">
+				<div class="p-h">
+					<span>寻找你的</span>
+					<label>同伴</label>
+				</div>
+				<!---strat-date-piker---->
+				  <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+				  <script>
+				  $(function() {
+				    $( "#datepicker" ).datepicker();
+				  });
+				  </script>
+				<!---/End-date-piker---->
+				<div class="p-ww">
+					<form>
+						<span> 地点</span>
+						<input class="dest" type="text" value="哈尔滨">
+						<span> 日期</span>
+						<input class="date" id="datepicker" type="text" value="请选择日期" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '请选择日期';}">
+						<input type="submit" value="搜索" />
+					</form>
+				</div>
+				<div class="clear"> </div>
+			</div>
+		</div>
+		<!----//End-find-place---->
+		<!----start-offers---->
+		<div class="offers">
+			<div class="offers-head">
+				<h3>景点推荐</h3>
+				<p>哈尔滨最好玩的景点！</p>
+			</div>
+			<!-- start content_slider -->
+			<!-- FlexSlider -->
+			 <!-- jQuery -->
+			  <link rel="stylesheet" href="/static/css/flexslider.css" type="text/css" media="screen" />
+			  <!-- FlexSlider -->
+			  <script defer src="/static/js/jquery.flexslider.js"></script>
+			  <script type="text/javascript">
+			    $(function(){
+			      SyntaxHighlighter.all();
+			    });
+			    $(window).load(function(){
+			      $('.flexslider').flexslider({
+			        animation: "slide",
+			        animationLoop: true,
+			        itemWidth:250,
+			        itemMargin: 5,
+			        start: function(slider){
+			          $('body').removeClass('loading');
+			        }
+			      });
+			    });
+			  </script>
+			<!-- Place somewhere in the <body> of your page -->
+				 <section class="slider">
+		        <div class="flexslider carousel">
+		          <ul class="slides">
+		            <li onclick="location.href='http://lvyou.baidu.com/bingxuedashijie';">
+		  	    	    <img src="/static/images/harbin1.jpg" />
+		  	    	    <!----place-caption-info---->
+		  	    	    <div class="caption-info">
+		  	    	    	 <div class="caption-info-head">
+		  	    	    	 	<div class="caption-info-head-left">
+			  	    	    	 	<h4><a href="http://lvyou.baidu.com/bingxuedashijie">冰雪大世界</a></h4>
+		  	    	    	 	</div>
+		  	    	    	 	<div class="caption-info-head-right">
+		  	    	    	 		<span> </span>
+		  	    	    	 	</div>
+		  	    	    	 	<div class="clear"> </div>
+		  	    	    	 </div>
+		  	    	    </div>
+		  	    	     <!----//place-caption-info---->
+		  	    		</li>
+		  	    		 <li onclick="location.href='http://lvyou.baidu.com/shengsuofeiyajiaotang';">
+		  	    	    <img src="/static/images/harbin2.jpg" />
+		  	    	    <!----place-caption-info---->
+		  	    	    <div class="caption-info">
+		  	    	    	 <div class="caption-info-head">
+		  	    	    	 	<div class="caption-info-head-left">
+			  	    	    	 	<h4><a href="http://lvyou.baidu.com/shengsuofeiyajiaotang">圣索菲亚教堂</a></h4>
+		  	    	    	 	</div>
+		  	    	    	 	<div class="caption-info-head-right">
+		  	    	    	 		<span> </span>
+		  	    	    	 	</div>
+		  	    	    	 	<div class="clear"> </div>
+		  	    	    	 </div>
+		  	    	    </div>
+		  	    	     <!----//place-caption-info---->
+		  	    		</li>
+		  	    		 <li onclick="location.href='http://lvyou.baidu.com/haerbintaiyangdao';">
+		  	    	    <img src="/static/images/harbin3.jpg" />
+		  	    	    <!----place-caption-info---->
+		  	    	    <div class="caption-info">
+		  	    	    	 <div class="caption-info-head">
+		  	    	    	 	<div class="caption-info-head-left">
+			  	    	    	 	<h4><a href="http://lvyou.baidu.com/haerbintaiyangdao">太阳岛</a></h4>
+		  	    	    	 	</div>
+		  	    	    	 	<div class="caption-info-head-right">
+		  	    	    	 		<span> </span>
+		  	    	    	 	</div>
+		  	    	    	 	<div class="clear"> </div>
+		  	    	    	 </div>
+		  	    	    </div>
+		  	    	     <!----//place-caption-info---->
+		  	    		</li>
+		  	    		 <li onclick="location.href='http://lvyou.baidu.com/zhongyangdajie?&request_id=2548509355&lowflow=1&idx=3';">
+		  	    	    <img src="/static/images/harbin4.jpg" />
+		  	    	    <!----place-caption-info---->
+		  	    	    <div class="caption-info">
+		  	    	    	 <div class="caption-info-head">
+		  	    	    	 	<div class="caption-info-head-left">
+			  	    	    	 	<h4><a href="http://lvyou.baidu.com/zhongyangdajie?&request_id=2548509355&lowflow=1&idx=3">中央大街</a></h4>
+		  	    	    	 	</div>
+		  	    	    	 	<div class="caption-info-head-right">
+		  	    	    	 		<span> </span>
+		  	    	    	 	</div>
+		  	    	    	 	<div class="clear"> </div>
+		  	    	    	 </div>
+		  	    	    </div>
+		  	    	     <!----//place-caption-info---->
+		  	    		</li>
+		            <li onclick="location.href='http://lvyou.baidu.com/haerbinjidiguan?&request_id=2548509355&lowflow=1&idx=4';">
+		  	    	    <img src="/static/images/harbin5.jpg" />
+		  	    	    <!----place-caption-info---->
+		  	    	    <div class="caption-info">
+		  	    	    	 <div class="caption-info-head">
+		  	    	    	 	<div class="caption-info-head-left">
+			  	    	    	 	<h4><a href="http://lvyou.baidu.com/haerbinjidiguan?&request_id=2548509355&lowflow=1&idx=4">哈尔滨极地馆</a></h4>
+		  	    	    	 	</div>
+		  	    	    	 	<div class="caption-info-head-right">
+		  	    	    	 		<span> </span>
+		  	    	    	 	</div>
+		  	    	    	 	<div class="clear"> </div>
+		  	    	    	 </div>
+		  	    	    </div>
+		  	    	     <!----//place-caption-info---->
+		  	    		</li>
+		  	    		 <li onclick="location.href='http://lvyou.baidu.com/haerbinyouleyuan?&request_id=2548509355&lowflow=1&idx=5';">
+		  	    	    <img src="/static/images/harbin6.jpg" />
+		  	    	    <!----place-caption-info---->
+		  	    	    <div class="caption-info">
+		  	    	    	 <div class="caption-info-head">
+		  	    	    	 	<div class="caption-info-head-left">
+			  	    	    	 	<h4><a href="http://lvyou.baidu.com/haerbinyouleyuan?&request_id=2548509355&lowflow=1&idx=5">哈尔滨游乐园</a></h4>
+		  	    	    	 	</div>
+		  	    	    	 	<div class="caption-info-head-right">
+		  	    	    	 		<span> </span>
+		  	    	    	 	</div>
+		  	    	    	 	<div class="clear"> </div>
+		  	    	    	 </div>
+		  	    	    </div>
+		  	    	     <!----//place-caption-info---->
+		  	    		</li>
+		  	    		 <li onclick="location.href='http://lvyou.baidu.com/dongbeihulinyuan?&request_id=2548509355&lowflow=1&idx=6';">
+		  	    	    <img src="/static/images/harbin7.jpg" />
+		  	    	    <!----place-caption-info---->
+		  	    	    <div class="caption-info">
+		  	    	    	 <div class="caption-info-head">
+		  	    	    	 	<div class="caption-info-head-left">
+			  	    	    	 	<h4><a href="http://lvyou.baidu.com/dongbeihulinyuan?&request_id=2548509355&lowflow=1&idx=6">东北虎林园</a></h4>
+		  	    	    	 	</div>
+		  	    	    	 	<div class="caption-info-head-right">
+		  	    	    	 		<span> </span>
+		  	    	    	 	</div>
+		  	    	    	 	<div class="clear"> </div>
+		  	    	    	 </div>
+		  	    	    </div>
+		  	    	     <!----//place-caption-info---->
+		  	    		</li>
+		  	    		 <li onclick="location.href='http://lvyou.baidu.com/suofeiyaguangchang?&request_id=2548509355&lowflow=1&idx=7';">
+		  	    	    <img src="/static/images/harbin8.jpg" />
+		  	    	    <!----place-caption-info---->
+		  	    	    <div class="caption-info">
+		  	    	    	 <div class="caption-info-head">
+		  	    	    	 	<div class="caption-info-head-left">
+			  	    	    	 	<h4><a href="http://lvyou.baidu.com/suofeiyaguangchang?&request_id=2548509355&lowflow=1&idx=7">索菲亚广场</a></h4>
+		  	    	    	 	</div>
+		  	    	    	 	<div class="caption-info-head-right">
+		  	    	    	 		<span> </span>
+		  	    	    	 	</div>
+		  	    	    	 	<div class="clear"> </div>
+		  	    	    	 </div>
+		  	    	    </div>
+		  	    	     <!----//place-caption-info---->
+		  	    		</li>
+		             <li onclick="location.href='http://lvyou.baidu.com/longta?&request_id=2548509355&lowflow=1&idx=8';">
+		  	    	    <img src="/static/images/harbin9.jpg" />
+		  	    	    <!----place-caption-info---->
+		  	    	    <div class="caption-info">
+		  	    	    	 <div class="caption-info-head">
+		  	    	    	 	<div class="caption-info-head-left">
+			  	    	    	 	<h4><a href="http://lvyou.baidu.com/longta?&request_id=2548509355&lowflow=1&idx=8">龙塔</a></h4>
+		  	    	    	 	</div>
+		  	    	    	 	<div class="caption-info-head-right">
+		  	    	    	 		<span> </span>
+		  	    	    	 	</div>
+		  	    	    	 	<div class="clear"> </div>
+		  	    	    	 </div>
+		  	    	    </div>
+		  	    	     <!----//place-caption-info---->
+		  	    		</li>
+		  	    	 <li onclick="location.href='http://lvyou.baidu.com/eluosifengqingxiaozhen?&request_id=2548509355&lowflow=1&idx=9';">
+		  	    	    <img src="/static/images/harbin10.jpg" />
+		  	    	    <!----place-caption-info---->
+		  	    	    <div class="caption-info">
+		  	    	    	 <div class="caption-info-head">
+		  	    	    	 	<div class="caption-info-head-left">
+			  	    	    	 	<h4><a href="http://lvyou.baidu.com/eluosifengqingxiaozhen?&request_id=2548509355&lowflow=1&idx=9">俄罗斯风情小镇</a></h4>
+		  	    	    	 	</div>
+		  	    	    	 	<div class="caption-info-head-right">
+		  	    	    	 		<span> </span>
+		  	    	    	 	</div>
+		  	    	    	 	<div class="clear"> </div>
+		  	    	    	 </div>
+		  	    	    </div>
+		  	    	     <!----//place-caption-info---->
+		  	    		</li>
+		  	    		 <li onclick="location.href='http://lvyou.baidu.com/yabulihuaxuechang?&request_id=2548509355&lowflow=1&idx=10';">
+		  	    	    <img src="/static/images/harbin11.jpg" />
+		  	    	    <!----place-caption-info---->
+		  	    	    <div class="caption-info">
+		  	    	    	 <div class="caption-info-head">
+		  	    	    	 	<div class="caption-info-head-left">
+			  	    	    	 	<h4><a href="http://lvyou.baidu.com/yabulihuaxuechang?&request_id=2548509355&lowflow=1&idx=10">亚布力滑雪场</a></h4>
+		  	    	    	 	</div>
+		  	    	    	 	<div class="caption-info-head-right">
+		  	    	    	 		<span> </span>
+		  	    	    	 	</div>
+		  	    	    	 	<div class="clear"> </div>
+		  	    	    	 </div>
+		  	    	    </div>
+		  	    	     <!----//place-caption-info---->
+		  	    		</li>
+		  	    		 <li onclick="location.href='http://lvyou.baidu.com/haerbinsonghuajiang?&request_id=2548509355&lowflow=1&idx=11';">
+		  	    	    <img src="/static/images/harbin12.jpg" />
+		  	    	    <!----place-caption-info---->
+		  	    	    <div class="caption-info">
+		  	    	    	 <div class="caption-info-head">
+		  	    	    	 	<div class="caption-info-head-left">
+			  	    	    	 	<h4><a href="http://lvyou.baidu.com/haerbinsonghuajiang?&request_id=2548509355&lowflow=1&idx=11">松花江</a></h4>
+		  	    	    	 	</div>
+		  	    	    	 	<div class="caption-info-head-right">
+		  	    	    	 		<span> </span>
+		  	    	    	 	</div>
+		  	    	    	 	<div class="clear"> </div>
+		  	    	    	 </div>
+		  	    	    </div>
+		  	    	     <!----//place-caption-info---->
+		  	    		</li>
+		          </ul>
+		        </div>
+		      </section>
+              <!-- //End content_slider -->
+		</div>
+		<!----//End-offers---->
+		<!---start-holiday-types---->
+			<div class="holiday-types">
+				<div class="wrap">
+					<div class="holiday-type-head">
+						<h3>旅行方式</h3>
+						<span>去探索你的梦想去环游世界！</span>
+					</div>
+					<div class="holiday-type-grids">
+						<div class="holiday-type-grid" onclick="location.href='#';">
+							<span class="icon1"> </span>
+							<a href="#">Cruise</a>
+						</div>
+						<div class="holiday-type-grid" onclick="location.href='#';">
+							<span class="icon2"> </span>
+							<a href="#">City Breaks</a>
+						</div>
+						<div class="holiday-type-grid" onclick="location.href='#';">
+							<span class="icon3"> </span>
+							<a href="#">Honeymoon</a>
+						</div>
+						<div class="holiday-type-grid" onclick="location.href='#';">
+							<span class="icon4"> </span>
+							<a href="#">Adventure</a>
+						</div>
+						<div class="holiday-type-grid" onclick="location.href='#';">
+							<span class="icon5"> </span>
+							<a href="#">Safari</a>
+						</div>
+						<div class="holiday-type-grid" onclick="location.href='#';">
+							<span class="icon6"> </span>
+							<a href="#">Beach</a>
+						</div>
+						<div class="clear"> </div>
+					</div>
+				</div>
+				</div>
+		<!---//End-holiday-types---->
+		<!----//End-images-slider---->
 
-<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
-</div>
+		<div class="subfooter">
+			<div class="wrap">
+				<ul>
+					<li><a href="../index.html">主页</a><span>::</span></li>
+					<li><a href="../destinations.html">路线推荐</a><span>::</span></li>
+					<li><a href="../criuses.html">驴友匹配</a><span>::</span></li>
+					<li><a href="../destinations.html">装备推荐</a><span>::</span></li>
+					<li><a href="../destinations.html">队伍列表</a></li>
+					<div class="clear"> </div>
+				</ul>
+				<p class="copy-right">Copyright &copy; 2015.哈工大小司机 All rights reserved.</p>
+				<a class="to-top" href="#header"><span> </span> </a>
+			</div>
+		</div>
+		<!---//End-subfooter---->
+		<!----//End-wrap---->
+	<div style="display:none"><script src='http://v7.cnzz.com/stat.php?id=155540&web_id=155540' language='JavaScript' charset='gb2312'></script></div>
 </body>
 </html>
+
