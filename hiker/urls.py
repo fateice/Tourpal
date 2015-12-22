@@ -15,16 +15,15 @@ urlpatterns = patterns('',
     url(r'^destinations.html/$', 'hiker.hithiker.views.destinations'),
     url(r'^match.html/$', 'hiker.hithiker.views.match'),
     url(r'^contact.html/$', 'hiker.hithiker.views.contact'),
-<<<<<<< HEAD
     url(r'^criuses.html/$', 'hiker.hithiker.views.criuses'),
     url(r'^blog.html/$', 'hiker.hithiker.views.blog'),
     url(r'^register.html/$', 'hiker.hithiker.views.register'),
     url(r'^userinfo.html/$', 'hiker.hithiker.views.userinfo'),
+    url(r'^userprofile.html/$', 'hiker.hithiker.views.userprofile'),
     url(r'^group.html/$', 'hiker.hithiker.views.group'),
-=======
-    url(r'^blog.html/$', 'hiker.hithiker.views.blog'),
-    url(r'^register.html/$', 'hiker.hithiker.views.register'),
-    url(r'^userinfo.html/$', 'hiker.hithiker.views.userinfo'),
->>>>>>> 869ef16ed005508eb184b267944f817b717b3901
+    url(r'^creategroup.html/$', 'hiker.hithiker.views.creategroup'),
+    url(r'^criuses_result.html/$', 'hiker.hithiker.views.criuses_result'),
+    url(r'^criuses_join.html/$', 'hiker.hithiker.views.criuses_join'),
+    url(r'^groupinfo.html/$', 'hiker.hithiker.views.groupinfo'),
     url( r'^static/(?P<path>.*)$', 'django.views.static.serve',{ 'document_root':settings.STATIC_ROOT }),
 )

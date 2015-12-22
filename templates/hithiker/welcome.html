@@ -3,13 +3,10 @@
 <head>
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
-<<<<<<< HEAD
 
 	<link rel="stylesheet" href="/static/css/reset.css"> <!-- CSS reset -->
 	<link rel="stylesheet" href="/static/css/welcome.css"> <!-- Gem style -->
 	<script src="/static/js/modernizr.js"></script> <!-- Modernizr -->
-=======
->>>>>>> 869ef16ed005508eb184b267944f817b717b3901
 	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
 	<meta name="renderer" content="webkit">
 	<title>哈工大小司机</title>
@@ -115,7 +112,6 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-<<<<<<< HEAD
         </div>
      
         <div>
@@ -125,7 +121,7 @@
 		<nav class="main-nav">
 			<ul>
 				<!-- inser more links here -->
-				<li><a href="#0"><button type="button" class="btn btn-success" >登陆</button></a></li>
+				<li><a href="#0"><button type="button" class="btn btn-success" >登录</button></a></li>
 				<li><a href="#0"><button type="button" class="btn btn-success" >注册</button></a></li>
 			</ul>
 		</nav>
@@ -134,22 +130,22 @@
 	<div class="cd-user-modal"> <!-- this is the entire modal form, including the background -->
 		<div class="cd-user-modal-container"> <!-- this is the container wrapper -->
 			<ul class="cd-switcher">
-				<li><a href="#0">登陆</a></li>
+				<li><a href="#0">登录</a></li>
 				<li><a href="#0">注册</a></li>
 			</ul>
 
 			<div id="cd-login"> <!-- log in form -->
-				<form class="cd-form">
+				<form class="cd-form" method="post" action="/index.html/">
 					<p class="fieldset">
 						<label class="image-replace cd-email" for="signin-email">邮箱：</label>
-						<input class="full-width has-padding has-border" id="signin-email" type="email" placeholder="邮箱">
+						<input class="full-width has-padding has-border" id="signin-email" name="signin_email" type="email" placeholder="邮箱">
 						<span class="cd-error-message">错误的信息！</span>
 					</p>
 
 					<p class="fieldset">
 						<label class="image-replace cd-password" for="signin-password">密码：</label>
-						<input class="full-width has-padding has-border" id="signin-password" type="text"  placeholder="密码">
-						<a href="#0" class="hide-password">隐藏</a>
+						<input class="full-width has-padding has-border" id="signin-password" name="signin_password" type="password"  placeholder="密码">
+						<a href="#0" class="hide-password">显示</a>
 						<span class="cd-error-message">错误的信息！</span>
 					</p>
 
@@ -159,7 +155,7 @@
 					</p>
 
 					<p class="fieldset">
-						<input class="full-width" type="submit" value="登陆">
+						<input class="full-width" type="submit" value="登录">
 					</p>
 				</form>
 				
@@ -168,23 +164,23 @@
 			</div> <!-- cd-login -->
 
 			<div id="cd-signup"> <!-- sign up form -->
-				<form class="cd-form">
+				<form class="cd-form" method="post" action="/userinfo.html/">
 					<p class="fieldset">
 						<label class="image-replace cd-username" for="signup-username">用户名：</label>
-						<input class="full-width has-padding has-border" id="signup-username" type="text" placeholder="用户名">
+						<input class="full-width has-padding has-border" id="signup-username" type="text" name="username" placeholder="用户名">
 						<span class="cd-error-message">错误的信息！</span>
 					</p>
 
 					<p class="fieldset">
 						<label class="image-replace cd-email" for="signup-email">邮箱：</label>
-						<input class="full-width has-padding has-border" id="signup-email" type="email" placeholder="邮箱">
+						<input class="full-width has-padding has-border" id="signup-email" type="email" name="useremail" placeholder="邮箱">
 						<span class="cd-error-message">错误的信息！</span>
 					</p>
 
 					<p class="fieldset">
 						<label class="image-replace cd-password" for="signup-password">密码：</label>
-						<input class="full-width has-padding has-border" id="signup-password" type="text"  placeholder="密码">
-						<a href="#0" class="hide-password">隐藏</a>
+						<input class="full-width has-padding has-border" id="signup-password" type="password"  name="password" placeholder="密码">
+						<a href="#0" class="hide-password">显示</a>
 						<span class="cd-error-message">错误的信息！</span>
 					</p>
 
@@ -215,27 +211,12 @@
 					</p>
 				</form>
 
-				<p class="cd-form-bottom-message"><a href="#0">返回登陆！</a></p>
+				<p class="cd-form-bottom-message"><a href="#0">返回登录！</a></p>
 			</div> <!-- cd-reset-password -->
 			<a href="#0" class="cd-close-form">关闭</a>
 		</div> <!-- cd-user-modal-container -->
 	</div> <!-- cd-user-modal -->
         </div>
-=======
-          <a class="navbar-brand" href="#">AI驴友</a>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-          <form class="navbar-form navbar-right" action="/index.html/" method="post">
-            <div class="form-group">
-              <input type="text" placeholder="Email" class="form-control" name="email">
-            </div>
-            <div class="form-group">
-              <input type="password" placeholder="Password" class="form-control" name="password">
-            </div>
-            <button type="submit" class="btn btn-success" >Sign in</button>
-          </form>
-        </div><!--/.navbar-collapse -->
->>>>>>> 869ef16ed005508eb184b267944f817b717b3901
       </div>
     </nav>
     
@@ -263,10 +244,7 @@
 		<div class="section section-5">
 			<div class="register">
 				<a href="/register.html"><button type="button" class="btn btn-primary btn-lg">立即注册</button></a>
-<<<<<<< HEAD
                 <a href="/index.html"><button type="button" class="btn btn-primary btn-lg">随便看看</button></a>
-=======
->>>>>>> 869ef16ed005508eb184b267944f817b717b3901
 			</div>
 		</div>
 
@@ -344,9 +322,6 @@
 
 <div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
 </div>
-<<<<<<< HEAD
 <script src="/static/js/main.js"></script> <!-- Gem jQuery -->
-=======
->>>>>>> 869ef16ed005508eb184b267944f817b717b3901
 </body>
 </html>

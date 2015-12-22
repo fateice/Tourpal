@@ -92,6 +92,7 @@ jQuery(document).ready(function($){
 	}
 
 	//REMOVE THIS - it's just to show error messages 
+	/*
 	$form_login.find('input[type="submit"]').on('click', function(event){
 		event.preventDefault();
 		$form_login.find('input[type="email"]').toggleClass('has-error').next('span').toggleClass('is-visible');
@@ -99,7 +100,7 @@ jQuery(document).ready(function($){
 	$form_signup.find('input[type="submit"]').on('click', function(event){
 		event.preventDefault();
 		$form_signup.find('input[type="email"]').toggleClass('has-error').next('span').toggleClass('is-visible');
-	});
+	});*/
 
 
 	//IE9 placeholder fallback

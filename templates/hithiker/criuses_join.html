@@ -1,0 +1,210 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>驴友匹配</title>
+    <link href="/static/css/style.css" rel='stylesheet' type='text/css' />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <script src="/static/js/jquery.min.js"></script>
+    <!---smoth-scrlling---->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('a[href^="#"]').on('click', function (e) {
+                e.preventDefault();
+                var target = this.hash,
+                $target = $(target);
+                $('html, body').stop().animate({
+                    'scrollTop': $target.offset().top
+                }, 1000, 'swing', function () {
+                    window.location.hash = target;
+                });
+            });
+        });
+    </script>
+
+    <script type="text/javascript" src="/static/js/flexy-menu.js"></script>
+    <script type="text/javascript">$(document).ready(function () { $(".flexy-menu").flexymenu({ speed: 400, type: "horizontal", align: "right" }); });</script>
+
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href="/static/css/jquery-ui.css" />
+
+    <link rel="stylesheet" href="/static/css/ihover.css" />
+
+    <link rel="stylesheet" href="/static/css/zalki_hover_img.css" type="text/css" media="screen">
+    <script src="/static/js/jquery.zalki_hover_img.min-0.2.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(window).load(function () {
+            $('.main_box').ZalkiHoverImg(
+            );
+        });
+    </script>
+
+    <link rel="stylesheet" type="text/css" href="/static/css/bootstrapcir.css" />
+    <link rel="stylesheet" type="text/css" href="/static/css/stylecir.css" />
+    <link rel="stylesheet" type="text/css" href="/static/css/font-awesome.css" />
+    <style type="text/css">
+    .team {
+        padding-top: 150px;
+        font-size: 19px;
+        text-align:center;
+    }
+    .row{
+        margin:0 auto;
+        width:400px;
+        padding-top:30px;
+    }
+    </style>
+</head>
+<body>
+
+    <div class="top-header" id="header">
+        <div class="wrap">
+            <div class="clear"> </div>
+        </div>
+    </div>
+    <div class="header">
+        <div class="wrap">
+            <div class="logo">
+                <a href="/index.html"><img src="/static/images/tourpal.png" title="voyage" /></a>
+            </div>
+        </div>
+        <div class="userbar">
+            <div class="ih-item circle effect1">
+                <a href="../userprofile.html">
+                    <div class="spinner"></div>
+                    <div class="img"><img src="/static/images/d.jpg" alt="img"></div>
+                </a>
+            </div>
+        </div>
+
+        <div class="wrap">
+            <div class="top-nav">
+                <ul class="flexy-menu thick orange">
+                    <li><a href="/index.html">主页</a></li>
+                    <li><a href="/destinations.html">路线推荐</a>
+                    <li class="active"><a href="/criuses.html">驴友匹配</a></li>
+                    <li><a href="/creategroup.html">发起组队</a></li>
+                    <li><a href="/group.html">队伍列表</a></li>
+                </ul>
+                <div class="search-box">
+                    <div id="sb-search" class="sb-search">
+                        <form>
+                            <input class="sb-search-input" placeholder="请输入你需要的内容..." type="search" name="search" id="search">
+                            <input class="sb-search-submit" type="submit" value="">
+                            <span class="sb-icon-search"> </span>
+                        </form>
+                    </div>
+                </div>
+
+
+                <script src="/static/js/modernizr.custom.js"></script>
+                <script src="/static/js/classie.js"></script>
+                <script src="/static/js/uisearch.js"></script>
+                <script>
+                    new UISearch(document.getElementById('sb-search'));
+                </script>
+
+            </div>
+
+
+            <div class="clear"> </div>
+        </div>
+
+
+    </div>
+    <!---start-destinatiuons---->
+    <div class="destinations">
+        <div class="destination-head">
+            <div class="wrap">
+            </div>
+            <!---End-destinatiuons---->
+            <div class="find-place">
+                <div class="wrap">
+                    <div class="p-h">
+                        <span>寻找你的</span>
+                        <label>路线</label>
+                    </div>
+                    <!---strat-date-piker---->
+                    <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+                    <script>
+                        $(function () {
+                            $("#datepicker").datepicker();
+                        });
+                    </script>
+                    <!---/End-date-piker---->
+                    <div class="p-ww">
+                        <form>
+                            <span> 地点</span>
+                            <input class="dest" type="text" value="哈尔滨">
+                            <span> 日期</span>
+                            <input class="date" id="datepicker" type="text" value="请选择日期" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '请选择日期';}">
+                            <input type="submit" value="Search" />
+                        </form>
+                    </div>
+                    <div class="clear"> </div>
+                </div>
+            </div>
+            <!----//End-find-place---->
+        </div>
+    </div>
+    <div class="wrap" style="height:500px;">
+        <div class="team">
+            {% if already %}
+            你已经是该小组成员
+            <div class="smart-body">
+                <div class="row">
+                    <div class="col-xs-2">
+                        <form action="http://hithiker.sinaapp.com/criuses.html/">
+                            <button type="submit" name="id" value="{{id}}" class="bu1 btn btn-block btn-lg btn-primary btn-icon" style="padding-right:55px;">匹配页面<i class=" fa fa-paper-plane"></i></button>
+                        </form>
+                    </div>
+
+                    <div class="col-xs-2">
+                        <form action="">
+                            <button type="button" name="more" value="" class="bu2 btn btn-block btn-lg btn-success btn-icon" style="padding-right:55px;">队伍信息<i class="fa fa-search"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            {%else%}
+            加入{{team_id}}小组成功
+            <div class="smart-body">
+                <div class="row">
+                    <div class="col-xs-2">
+                        <form action="http://hithiker.sinaapp.com/criuses.html/">
+                            <button type="submit" name="id" value="{{id}}" class="bu1 btn btn-block btn-lg btn-primary btn-icon" style="padding-right:55px;">匹配页面<i class=" fa fa-paper-plane"></i></button>
+                        </form>
+                    </div>
+
+                    <div class="col-xs-2">
+                        <form action="">
+                            <button type="button" name="more" value="" class="bu2 btn btn-block btn-lg btn-success btn-icon" style="padding-right:55px;">队伍信息<i class="fa fa-search"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+    <div class="subfooter">
+        <div class="wrap">
+            <ul>
+                <li><a href="../index.html">主页</a><span>::</span></li>
+                <li><a href="../destinations.html">路线推荐</a><span>::</span></li>
+                <li><a href="../criuses.html">驴友匹配</a><span>::</span></li>
+                <li><a href="../creategroup.html">发起组队</a><span>::</span></li>
+                <li><a href="../group.html">队伍列表</a></li>
+                <div class="clear"> </div>
+            </ul>
+            <p class="copy-right">Copyright &copy; 2015.哈工大小司机 All rights reserved.</p>
+            <a class="to-top" href="#header"><span> </span> </a>
+        </div>
+    </div>
+    <!---//End-subfooter---->
+    <!----//End-wrap---->
+    <div style="display:none">
+        <script src='http://v7.cnzz.com/stat.php?id=155540&web_id=155540' language='JavaScript' charset='gb2312'></script>
+    </div>
+</body>
+</html>

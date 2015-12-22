@@ -1,4 +1,4 @@
-<!DOCTYPE HTML>
+ <!DOCTYPE HTML>
 <html>
 	<head>
 		<title>主页</title>
@@ -62,7 +62,7 @@
       color: #88a7f7;
     }
     .bg{
-    	background: url(/static/images/groupbg.jpg) no-repeat center top fixed;
+    	background: url(/static/images/groupbg2.jpg) no-repeat center top fixed;
     	-webkit-background-size: cover;
       -moz-background-size: cover;
       -o-background-size: cover;
@@ -169,7 +169,7 @@
 				</div>
 			</div>
     	<div class="userbar">
-    	<div class="ih-item circle effect1"><a href="../userinfo.html">
+    	<div class="ih-item circle effect1"><a href="../userprofile.html">
         <div class="spinner"></div>
         <div class="img"><img src="/static/images/d.jpg" alt="img"></div>
         </a></div>
@@ -180,8 +180,8 @@
 						<ul class="flexy-menu thick orange">
 							<li><a href="/index.html">主页</a></li>
 							<li><a href="/destinations.html">路线推荐</a>
-							<li><a href="/match.html">驴友匹配</a></li>
-							<li><a href="/destinations.html">装备推荐</a></li>
+							<li><a href="/criuses.html">驴友匹配</a></li>
+              <li><a href="/creategroup.html">发起组队</a></li>
 							<li class="active"><a href="/group.html">队伍列表</a></li>
 						</ul>
 						<div class="search-box">
@@ -209,55 +209,58 @@
 			</div>
 
 <div class="bg">
+  <a href="../creategroup.html"><button type="button" class="btn btn-danger" style="float:right;">创建小组</button></a>
 <div class="gwrap">
+
       <div id="showcase" class="noselect">
         <div class="card">
-          <h2>第一小组</h2>
+          <h2>{{team_name1}}</h2>
           <img src="/static/images/1.jpg">
           <p>
-           团结、奋进、向上，不屈不挠！
+           {{team_info1}}
           </p>
-          <a href=""><button type="button" class="btn btn-success" >加入小组</button></a>
+          
+          <a href="http://hithiker.sinaapp.com/groupinfo.html?groupid={{team_id1}}"><button type="button" class="btn btn-success" >详细信息</button></a>
         </div>
         <div class="card">
-          <h2>第二小组</h2>
+          <h2>{{team_name2}}</h2>
           <img src="/static/images/2.jpg">
           <p>
-            优秀的团队，只为同样优秀的你！
+            {{team_info2}}
           </p>
-          <a href=""><button type="button" class="btn btn-success" >加入小组</button></a>
+          <a href="http://hithiker.sinaapp.com/groupinfo.html?groupid={{team_id2}}"><button type="button" class="btn btn-success" >详细信息</button></a>
         </div>
         <div class="card">
-          <h2>第三小组</h2>
+          <h2>{{team_name3}}</h2>
           <img src="/static/images/3.jpg">
           <p>
-            严谨地质疑一切，甚至质疑科学。
+            {{team_name3}}
           </p>
-          <a href=""><button type="button" class="btn btn-success" >加入小组</button></a>
+          <a href="http://hithiker.sinaapp.com/groupinfo.html?groupid={{team_id3}}"><button type="button" class="btn btn-success" >详细信息</button></a>
         </div>
         <div class="card">
-          <h2>第四小组</h2>
+          <h2>{{team_name4}}</h2>
           <img src="/static/images/4.jpg">
           <p>
-            独立思考世界，永恒追求真理。
+            {{team_info4}}
           </p>
-          <a href=""><button type="button" class="btn btn-success" >加入小组</button></a>
+          <a href="http://hithiker.sinaapp.com/groupinfo.html?groupid={{team_id4}}"><button type="button" class="btn btn-success" >详细信息</button></a>
         </div>
         <div class="card">
-          <h2>第五小组</h2>
+          <h2>{{team_name5}}</h2>
           <img src="/static/images/5.jpg">
           <p>
-            在蒙昧中划过一道智慧的光芒，那里曾经有我们走过的烙印！
+            {{team_info5}}
           </p>
-          <a href=""><button type="button" class="btn btn-success" >加入小组</button></a>
+          <a href="http://hithiker.sinaapp.com/groupinfo.html?groupid={{team_id5}}"><button type="button" class="btn btn-success" >详细信息</button></a>
         </div>
         <div class="card">
-          <h2>第六小组</h2>
+          <h2>{{team_name6}}</h2>
           <img src="/static/images/6.jpg">
           <p>
-           行到水穷处，坐看云起时
+           {{team_name6}}
           </p>
-          <a href=""><button type="button" class="btn btn-success" >加入小组</button></a>
+          <a href="http://hithiker.sinaapp.com/groupinfo.html?groupid={{team_id6}}"><button type="button" class="btn btn-success" >详细信息</button></a>
         </div>
       </div>
       <button class="nav noselect left">
@@ -265,17 +268,35 @@
       </button>
       <button class="nav noselect right">
         &gt;
-      </button>
+      
     </div>
-
+<table class="table table-hover" style="width:80%;margin-left:10%;font-size:medium;background-color:rgba(255, 255, 255, 0.39);">
+  <tr style="background-color:rgba(45, 222, 204, 0.54);">
+    <td>小组名</td>
+    <td>小组简介</td>
+    <td>活动所在城市</td>
+    <td>日期</td>
+    <td></td>
+  </tr>
+        {%for i in team_all %}
+      <tr>
+        <td>{{i.1}}</td>
+        <td>{{i.2}}</td>
+        <td>{{i.3}}</td>
+        <td>{{i.4}}</td>
+        <td><a href="http://hithiker.sinaapp.com/groupinfo.html?groupid={{i.0}}"><button type="button" class="btn btn-success" >详细信息</button></a></td>
+      </tr>
+        {%endfor%}
+      </table>
 </div>
-<div class="subfooter">
+
+<div class="subfooter" style="margin-top:-20px;">
 			<div class="wrap">
 				<ul>
 					<li><a href="../index.html">主页</a><span>::</span></li>
 					<li><a href="../destinations.html">路线推荐</a><span>::</span></li>
 					<li><a href="../criuses.html">驴友匹配</a><span>::</span></li>
-					<li><a href="../destinations.html">装备推荐</a><span>::</span></li>
+          <li><a href="../creategroup.html">发起组队</a><span>::</span></li>
 					<li><a href="../group.html">队伍列表</a></li>
 					<div class="clear"> </div>
 				</ul>
