@@ -82,7 +82,7 @@
             <div class="top-nav">
                 <ul class="flexy-menu thick orange">
                     <li><a href="/index.html">主页</a></li>
-                    <li><a href="/destinations.html">路线推荐</a>
+                    <li><a href="/destinations.html">景点推荐</a>
                     <li class="active"><a href="/criuses.html">驴友匹配</a></li>
                     <li><a href="/creategroup.html">发起组队</a></li>
                     <li><a href="/group.html">队伍列表</a></li>
@@ -152,46 +152,32 @@
         <div class="team">
             {% if already %}
             你已经是该小组成员
-            <div class="smart-body">
-                <div class="row">
-                    <div class="col-xs-2">
-                        <form action="http://hithiker.sinaapp.com/criuses.html/">
-                            <button type="submit" name="id" value="{{id}}" class="bu1 btn btn-block btn-lg btn-primary btn-icon" style="padding-right:55px;">匹配页面<i class=" fa fa-paper-plane"></i></button>
-                        </form>
-                    </div>
-
-                    <div class="col-xs-2">
-                        <form action="">
-                            <button type="button" name="more" value="" class="bu2 btn btn-block btn-lg btn-success btn-icon" style="padding-right:55px;">队伍信息<i class="fa fa-search"></i></button>
-                        </form>
-                    </div>
-                </div>
-            </div>
             {%else%}
             加入{{team_id}}小组成功
+            {% endif %}
             <div class="smart-body">
                 <div class="row">
                     <div class="col-xs-2">
                         <form action="http://hithiker.sinaapp.com/criuses.html/">
-                            <button type="submit" name="id" value="{{id}}" class="bu1 btn btn-block btn-lg btn-primary btn-icon" style="padding-right:55px;">匹配页面<i class=" fa fa-paper-plane"></i></button>
+                            <button type="submit" class="bu1 btn btn-block btn-lg btn-primary btn-icon" style="padding-right:55px;">匹配页面<i class=" fa fa-paper-plane"></i></button>
                         </form>
                     </div>
 
                     <div class="col-xs-2">
                         <form action="">
-                            <button type="button" name="more" value="" class="bu2 btn btn-block btn-lg btn-success btn-icon" style="padding-right:55px;">队伍信息<i class="fa fa-search"></i></button>
+                            <a href="http://hithiker.sinaapp.com/groupinfo.html/?groupid={{team_id}}"><button type="button" name="more" value="" class="bu2 btn btn-block btn-lg btn-success btn-icon" style="padding-right:55px;">队伍信息<i class="fa fa-search"></i></button></a>
                         </form>
                     </div>
                 </div>
             </div>
-            {% endif %}
+            
         </div>
     </div>
     <div class="subfooter">
         <div class="wrap">
             <ul>
                 <li><a href="../index.html">主页</a><span>::</span></li>
-                <li><a href="../destinations.html">路线推荐</a><span>::</span></li>
+                <li><a href="../destinations.html">景点推荐</a><span>::</span></li>
                 <li><a href="../criuses.html">驴友匹配</a><span>::</span></li>
                 <li><a href="../creategroup.html">发起组队</a><span>::</span></li>
                 <li><a href="../group.html">队伍列表</a></li>

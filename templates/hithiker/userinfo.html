@@ -36,6 +36,19 @@
 									});
 								});
 				</script>
+			<script type="text/javascript">
+				function ErrCheck(ipt,str)
+				{
+					if(document.getElementById(ipt).value.length==0)
+						{
+							document.getElementById(str).style.display = "block";
+						}
+					else
+					{
+						document.getElementById(str).style.display = "none";
+					}
+				}
+			</script>	
 		<!----start-top-nav-script---->
 		<script type="text/javascript" src="/static/js/flexy-menu.js"></script>
 		<script type="text/javascript">$(document).ready(function(){$(".flexy-menu").flexymenu({speed: 400,type: "horizontal",align: "right"});});</script>
@@ -76,7 +89,7 @@
 				<div class="top-nav">
 						<ul class="flexy-menu thick orange">
 							<li class="active"><a href="/index.html">主页</a></li>
-							<li><a href="/destinations.html">路线推荐</a>
+							<li><a href="/destinations.html">景点推荐</a>
 							<li><a href="/criuses.html">驴友匹配</a></li>
 							<li><a href="/creategroup.html">发起组队</a></li>
 							<li><a href="/group.html">队伍列表</a></li>
@@ -112,12 +125,22 @@
 		<form style="margin:30px;" method="post">
   <div class="form-group">
     <label>姓名：</label>
-    <input class="form-control" placeholder="Name" name="username" value={{username}}>
+    <input class="form-control" placeholder="Name" name="username" id="username" value={{username}} onblur = "ErrCheck('username','dv1')" required="required">
   </div>
+    <div class = "tips" id = "dv1">
+    	<p class = "error">
+    		* 请输入姓名
+    	</p>
+    </div>
   <div class="form-group">
     <label>年龄：</label>
-    <input class="form-control" placeholder="Age" name="age" value={{age}}>
+    <input class="form-control" placeholder="Age" name="age" value={{age}} id="age" onblur="ErrCheck('age','dv2')" required="required">
   </div>
+  	<div class = "tips" id = "dv2">
+    	<p class = "error">
+    		* 请输入年龄
+    	</p>
+    </div>
   <div class="form-group">
     <label>性别：</label>
     
@@ -129,16 +152,26 @@
   </div>
   <div class="form-group">
     <label>手机：</label>
-    <input class="form-control" placeholder="Phone" name="phone" value={{phone}}>
+    <input class="form-control" placeholder="Phone" name="phone" id="phone" value={{phone}} onblur = "ErrCheck('phone','dv3')" required="required">
   </div>
+  <div class = "tips" id = "dv3">
+    	<p class = "error">
+    		* 请输入手机
+    	</p>
+    </div>
   <div class="form-group">
     <label>邮箱：</label>
-    <input class="form-control" placeholder="email" name="email" disabled="disabled" value={{email}}>
+    <input class="form-control" placeholder="email" name="email" disabled="disabled" value={{email}} required="required">
   </div>
   <div class="form-group">
     <label>城市：</label>
-    <input class="form-control" placeholder="City" name="city" value={{city}}>
+    <input class="form-control" placeholder="City" name="city" value={{city}} id="city" onblur="ErrCheck('city','dv4')" required="required">
   </div>
+  <div class = "tips" id = "dv4">
+    	<p class = "error">
+    		* 请输入城市
+    	</p>
+    </div>
   <div class="form-group">
     <label>兴趣爱好：</label>
     <select name="hobby">
@@ -163,7 +196,7 @@
 			<div class="wrap">
 				<ul>
 					<li><a href="../index.html">主页</a><span>::</span></li>
-					<li><a href="../destinations.html">路线推荐</a><span>::</span></li>
+					<li><a href="../destinations.html">景点推荐</a><span>::</span></li>
 					<li><a href="../criuses.html">驴友匹配</a><span>::</span></li>
 					<li><a href="../creategroup.html">发起组队</a><span>::</span></li>
 					<li><a href="../group.html">队伍列表</a></li>

@@ -36,6 +36,35 @@
 									});
 								});
 				</script>
+				<script type="text/javascript">
+			      function myCheck()
+			      {
+			         for(var i=0;i<document.team-info.elements.length-1;i++)
+			         {
+			          if(document.team-info.elements[i].value.length == 0)
+			          {
+			           alert("当前表单不能有空项");
+			           document.team-info.elements[i].focus();
+			           return false;
+			          }
+			         }
+			         return true;
+			        
+			      }
+    			</script>
+    			<script type="text/javascript">
+    				function ErrCheck(ipt,str)
+    				{
+    					if(document.getElementById(ipt).value.length==0)
+    						{
+    							document.getElementById(str).style.display = "block";
+    						}
+    					else
+    					{
+    						document.getElementById(str).style.display = "none";
+    					}
+    				}
+    			</script>	
 		<!----start-top-nav-script---->
 		<script type="text/javascript" src="/static/js/flexy-menu.js"></script>
 		<script type="text/javascript">$(document).ready(function(){$(".flexy-menu").flexymenu({speed: 400,type: "horizontal",align: "right"});});</script>
@@ -76,7 +105,7 @@
 				<div class="top-nav">
 						<ul class="flexy-menu thick orange">
 							<li><a href="/index.html">主页</a></li>
-							<li><a href="/destinations.html">路线推荐</a>
+							<li><a href="/destinations.html">景点推荐</a>
 							<li><a href="/criuses.html">驴友匹配</a></li>
 							<li class="active"><a href="/creategroup.html">发起组队</a></li>
 							<li><a href="/group.html">队伍列表</a></li>
@@ -109,16 +138,34 @@
 		</div>
 	<div class="wrap2">
 		<div style="margin-top:20px;"><h1 style="display:inline;">队伍信息</h1></div>
-		<form style="margin:30px;" method="get">
+		<form style="margin:30px;" method="get" name="team-info" onSubmit="return myCheck()">
+	
   <div class="form-group">
+  	<div class = "tit">
+  		<i>*</i>
     <label>队名：</label>
-    <input class="form-control" placeholder="请输入你想创建的队名" type="text" name="team_name">
-  </div>
-  <div class="form-group">
-    <label>宣言：</label>
-    <input class="form-control" placeholder="请输入队伍的宣言" type="text" name="introduce">
+	</div>
+    <input class="form-control" placeholder="请输入你想创建的队名" type="text" name="team_name" id ="team_name" maxlength = 10 onblur = "ErrCheck('team_name','dv1')" required="required">
+    <div class = "tips" id = "dv1">
+    	<p class = "error">
+    		* 请输入队名
+    	</p>
+    </div>
   </div>
 
+  <div class="form-group">
+  	<div class = "tit">
+  		<i>*</i>
+    <label>宣言：</label>
+	</div>
+    <input class="form-control" placeholder="请输入队伍的宣言" type="text" name="introduce" id="introduce" onblur = "ErrCheck('introduce','dv2')" required="required">
+    <div class = "tips" id = "dv2">
+    	<p class = "error">
+    		* 请输入宣言
+    	</p>
+    </div>
+  </div>
+	
   <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
 				  <script>
 				  $(function() {
@@ -129,18 +176,37 @@
 	
 
   <div class="form-group">
-				<label>日期:</label>
-				<input class="form-control" id="datepicker" type="text" value="请选择日期" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '请选择日期';}" name = "date">
+  				<div class = "tit">
+  				<i>*</i>
+    				<label>日期:</label>
+				</div>
+				<input class="form-control" id="datepicker" type="text" placeholder="请选择日期"  name = "date" required="required">
 			
 		</div>
 <div class="form-group">
-		
-				<label>城市:</label>
-				<input class="form-control" type="text" placeholder="哈尔滨" name="city">
-				</div>
+	<div class = "tit">
+		<i>*</i>
+		<label>出发城市:</label>
+	</div>
+	<!-- <input class="form-control" type="text" placeholder="哈尔滨" name="city"> -->
+	<input class="form-control" type="text" placeholder="哈尔滨" onkeyup="value=value.replace(/[\d]/g,'') "onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[\d]/g,''))" maxlength=10 name="city" id="city" onblur = "ErrCheck('city','dv4')" required="required"> 
+	<div class = "tips" id = "dv4">
+		<p class = "error">
+			* 请输入出发城市
+		</p>
+	</div>
+</div>
   <div class="form-group">
-    <label>具体地点：</label>
-    <input class="form-control" placeholder="请输入本次旅途的地点" name="destination">
+	<div class = "tit">
+		<i>*</i>
+	    <label>目的地：</label>
+	</div>
+    <input class="form-control" placeholder="请输入本次旅途的目的地" name="destination" type="text" onkeyup="value=value.replace(/[\d]/g,'') "onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[\d]/g,''))" maxlength=10 onblur = "ErrCheck('destination','dv5')" id="destination" required="required">
+    <div class = "tips" id = "dv5">
+		<p class = "error">
+			* 请输入本次旅途目的地
+		</p>
+	</div>
   </div>
   <div class="form-group">
     <label>方向：</label>
@@ -159,7 +225,7 @@
 			<div class="wrap">
 				<ul>
 					<li><a href="../index.html">主页</a><span>::</span></li>
-					<li><a href="../destinations.html">路线推荐</a><span>::</span></li>
+					<li><a href="../destinations.html">景点推荐</a><span>::</span></li>
 					<li><a href="../criuses.html">驴友匹配</a><span>::</span></li>
 					<li><a href="../creategroup.html">发起组队</a><span>::</span></li>
 					<li><a href="../group.html">队伍列表</a></li>

@@ -34,10 +34,48 @@ def index(request):
         return render_to_response('hithiker/forbid.html')
 
 def destinations(request):
-    return render_to_response('hithiker/destinations.html')
+    if "useremail" in request.COOKIES:
+        cursor = connection.cursor()
+        alist =["帽儿山","太阳岛","松花江","冰雪大世界","哈尔滨极地馆","亚布力滑雪场","圣索菲亚大教堂","中央大街","伏尔加庄园","哈尔滨游乐园","龙塔"]
+        sql = 'SELECT * FROM grouplist WHERE destination=\''+alist[0]+'\''
+        cursor.execute(sql)
+        d1 = cursor.fetchall()
+        sql = 'SELECT * FROM grouplist WHERE destination=\''+alist[1]+'\''
+        cursor.execute(sql)
+        d2 = cursor.fetchall()
+        sql = 'SELECT * FROM grouplist WHERE destination=\''+alist[2]+'\''
+        cursor.execute(sql)
+        d3 = cursor.fetchall()
+        sql = 'SELECT * FROM grouplist WHERE destination=\''+alist[3]+'\''
+        cursor.execute(sql)
+        d4 = cursor.fetchall()
+        sql = 'SELECT * FROM grouplist WHERE destination=\''+alist[4]+'\''
+        cursor.execute(sql)
+        d5 = cursor.fetchall()
+        sql = 'SELECT * FROM grouplist WHERE destination=\''+alist[5]+'\''
+        cursor.execute(sql)
+        d6 = cursor.fetchall()
+        sql = 'SELECT * FROM grouplist WHERE destination=\''+alist[6]+'\''
+        cursor.execute(sql)
+        d7 = cursor.fetchall()
+        sql = 'SELECT * FROM grouplist WHERE destination=\''+alist[7]+'\''
+        cursor.execute(sql)
+        d8 = cursor.fetchall()
+        sql = 'SELECT * FROM grouplist WHERE destination=\''+alist[8]+'\''
+        cursor.execute(sql)
+        d9 = cursor.fetchall()
+        sql = 'SELECT * FROM grouplist WHERE destination=\''+alist[9]+'\''
+        cursor.execute(sql)
+        d10 = cursor.fetchall()
+        sql = 'SELECT * FROM grouplist WHERE destination=\''+alist[10]+'\''
+        cursor.execute(sql)
+        d11 = cursor.fetchall()
+        cursor.close()
+        dic={'d1':d1,'d2':d2,'d3':d3,'d4':d4,'d5':d5,'d6':d6,'d7':d7,'d8':d8,'d9':d9,'d10':d10,'d11':d11}
+        return render_to_response('hithiker/destinations.html',dic)
+    else:
+        return render_to_response('hithiker/forbid.html')
 
-def match(request):
-    return render_to_response('hithiker/match.html')
 
 def userinfo(request):
     if 'useremail' in request.POST and 'password' in request.POST and 'username' in request.POST:
@@ -126,20 +164,58 @@ def groupinfo(request):
             userid_a = cursor.fetchall()
             userid = str(userid_a[0][0])
             flag = 0
+            i = 0
+            user=[]
             sql = 'SELECT * FROM groupinfo WHERE groupid=\''+groupid+'\' AND userid=\''+userid+'\''
             if cursor.execute(sql)!=0:
                 flag = 1
-            cursor.close()
-            dic={'groupinfo':groupinfo,'flag':flag}
-            return render_to_response('hithiker/groupinfo.html',dic)
-        elif "team" in request.GET:
-            groupid = request.GET['team']
-            cursor = connection.cursor()
-            sql='SELECT userid FROM groupinfo WHERE groupid=\''+groupid+'\''
+                sql = 'SELECT userid FROM groupinfo WHERE groupid=\''+groupid+'\''
+                cursor.execute(sql)
+                all_userid = cursor.fetchall()
+                for iiii in all_userid:
+                    sql = 'SELECT * FROM user WHERE userid = \''+str(all_userid[i][0])+'\''
+                    cursor.execute(sql)
+                    a = cursor.fetchall()
+                    user.append(a[0])
+                    i = i + 1
+            sql = 'SELECT * FROM talklist WHERE groupid=\''+groupid+'\''
             cursor.execute(sql)
-            userid = cursor.fetchall()
+            all_uc = cursor.fetchall()
+
             cursor.close()
-            return render_to_response('hithiker/groupinfo.html')
+            dic={'groupinfo':groupinfo,'flag':flag,'user':user,'all_uc':all_uc}
+            return render_to_response('hithiker/groupinfo.html',dic)
+        elif "exit" in request.GET:
+            groupid = request.GET['exit']
+            email = request.COOKIES['useremail']
+            cursor = connection.cursor()
+            sql = 'SELECT userid FROM user WHERE email=\''+email+'\''
+            cursor.execute(sql)
+            userid_a = cursor.fetchall()
+            userid = str(userid_a[0][0])
+            sql = 'DELETE FROM groupinfo WHERE groupid = \''+groupid+'\' AND userid = \''+userid+'\''
+            cursor.execute(sql)
+            transaction.commit_unless_managed()
+            cursor.close()
+            return HttpResponseRedirect('http://hithiker.sinaapp.com/groupinfo.html/?groupid='+groupid+'')
+        elif 'comment' in request.GET and 'gid' in request.GET:
+            comment = request.GET['comment']
+            groupid = request.GET['gid']
+            email = request.COOKIES['useremail']
+            cursor = connection.cursor()
+            sql = 'SELECT userid FROM user WHERE email=\''+email+'\''
+            cursor.execute(sql)
+            userid_a = cursor.fetchall()
+            userid = str(userid_a[0][0])
+            sql = 'SELECT name FROM user WHERE email=\''+email+'\''
+            cursor.execute(sql)
+            username_a = cursor.fetchall()
+            username = str(username_a[0][0])
+            sql='INSERT INTO talklist (groupid,userid,username,talk) values (\''+groupid+'\',\''+userid+'\',\''+username+'\',\''+comment+'\')'
+            cursor.execute(sql)
+            transaction.commit_unless_managed()
+            cursor.close()
+            return HttpResponseRedirect('http://hithiker.sinaapp.com/groupinfo.html/?groupid='+groupid+'')
         else:
             return render_to_response('hithiker/forbid.html')
     else:
@@ -380,7 +456,7 @@ def group(request):
 def creategroup(request):
     if "useremail" in request.COOKIES:
         email = request.COOKIES['useremail']
-        if 'team_name' in request.GET and 'city' in request.GET and 'destination' in request.GET:
+        if 'team_name' in request.GET and 'city' in request.GET and 'destination' in request.GET and 'date' in request.GET and 'introduce' in request.GET:
             name = request.GET['team_name']
             introduction = request.GET['introduce']
             city = request.GET['city']
@@ -388,7 +464,7 @@ def creategroup(request):
             destination = request.GET['destination']
             hobby = request.GET['select']
             cursor = connection.cursor()
-            sql='insert into grouplist (name,introduction,city,date,destination,hobby) values (\''+name+'\',\''+introduction+'\',\''+city+'\',\''+date+'\',\''+destination+'\',\''+hobby+'\')'
+            sql='insert into grouplist (name,introduction,city,date,destination,hobby,number) values (\''+name+'\',\''+introduction+'\',\''+city+'\',\''+date+'\',\''+destination+'\',\''+hobby+'\',1)'
             cursor.execute(sql)
             transaction.commit_unless_managed()
             sql = 'select name from grouplist order by date desc limit 6'
@@ -422,6 +498,10 @@ def creategroup(request):
             userid = str(userid[0][0])
             sql='INSERT into groupinfo (groupid,userid,groupname) values (\''+group_id+'\',\''+userid+'\',\''+name+'\')'
             cursor.execute(sql)
+            transaction.commit_unless_managed()
+            sql = 'select * from grouplist'
+            cursor.execute(sql)
+            team_all = cursor.fetchall()
             transaction.commit_unless_managed()
             cursor.close()
             return render_to_response('hithiker/group.html',locals())

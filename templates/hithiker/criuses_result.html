@@ -77,7 +77,7 @@
             <div class="top-nav">
                 <ul class="flexy-menu thick orange">
                     <li><a href="/index.html">主页</a></li>
-                    <li><a href="/destinations.html">路线推荐</a>
+                    <li><a href="/destinations.html">景点推荐</a>
                     <li class="active"><a href="/criuses.html">驴友匹配</a></li>
                     <li><a href="/creategroup.html">发起组队</a></li>
                     <li><a href="/group.html">队伍列表</a></li>
@@ -123,7 +123,6 @@
                 <form action="http://hithiker.sinaapp.com/criuses_join.html/" method="get">
                     <div class="small-team" style="height:313px;">
                         <div class="smart-t">
-                            {{id}}
                             队名:{{name}}
                             <br />
                             简介:{{info}}
@@ -143,7 +142,7 @@
                                     <button type="submit" name="id" value="{{id}}" class="bu1 btn btn-block btn-lg btn-primary btn-icon" style="padding-right:55px;">加入此队<i class=" fa fa-paper-plane"></i></button>
                                 </div>
                                 <div class="col-xs-2">
-                                    <button type="button" name="more" value="" class="bu2 btn btn-block btn-lg btn-success btn-icon" style="padding-right:55px;">详细信息<i class="fa fa-search"></i></button>
+                                    <a href="http://hithiker.sinaapp.com/groupinfo.html/?groupid={{id}}"><button type="button" name="more" value="" class="bu2 btn btn-block btn-lg btn-success btn-icon" style="padding-right:55px;">详细信息<i class="fa fa-search"></i></button></a>
                                 </div>
                             </div>
                         </div>
@@ -160,7 +159,7 @@
         <div class="wrap">
             <ul>
                 <li><a href="../index.html">主页</a><span>::</span></li>
-                <li><a href="../destinations.html">路线推荐</a><span>::</span></li>
+                <li><a href="../destinations.html">景点推荐</a><span>::</span></li>
                 <li><a href="../criuses.html">驴友匹配</a><span>::</span></li>
                 <li><a href="../creategroup.html">发起组队</a><span>::</span></li>
                 <li><a href="../group.html">队伍列表</a></li>

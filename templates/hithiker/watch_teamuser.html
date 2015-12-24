@@ -21,6 +21,7 @@
             });
         });
     </script>
+
     <script type="text/javascript" src="/static/js/flexy-menu.js"></script>
     <script type="text/javascript">$(document).ready(function () { $(".flexy-menu").flexymenu({ speed: 400, type: "horizontal", align: "right" }); });</script>
 
@@ -42,9 +43,6 @@
     <link rel="stylesheet" type="text/css" href="/static/css/bootstrapcir.css" />
     <link rel="stylesheet" type="text/css" href="/static/css/stylecir.css" />
     <link rel="stylesheet" type="text/css" href="/static/css/font-awesome.css" />
-    <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
-<script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <style type="text/css">
     .team{
         padding-top:20px;
@@ -80,9 +78,9 @@
                 <ul class="flexy-menu thick orange">
                     <li><a href="/index.html">主页</a></li>
                     <li><a href="/destinations.html">景点推荐</a>
-                    <li><a href="/criuses.html">驴友匹配</a></li>
+                    <li class="active"><a href="/criuses.html">驴友匹配</a></li>
                     <li><a href="/creategroup.html">发起组队</a></li>
-                    <li class="active"><a href="/group.html">队伍列表</a></li>
+                    <li><a href="/group.html">队伍列表</a></li>
                 </ul>
                 <div class="search-box">
                     <div id="sb-search" class="sb-search">
@@ -142,97 +140,26 @@
                         </div>
                         <div class="smart-body">
                             <div class="row">
-                                <div class="col-xs-3" style="float:initial;">
+                                <div class="col-xs-2">
                                     {%if not flag%}<a href="http://hithiker.sinaapp.com/criuses_join.html/?id={{i.0}}"><button type="button"class="bu1 btn btn-block btn-lg btn-primary btn-icon" style="padding-right:55px;">加入此队<i class=" fa fa-paper-plane"></i></button></a>{%endif%}
                                     {%if flag%}
                                     <button type="button"class="bu1 btn btn-block btn-lg btn-default active">你已经加入此队！</button>
-                                    <button type="button" class="bu1 btn btn-block btn-lg btn-danger btn-icon" id="exitbutton" onclick="show_confirm()">退出此队</button>
-                                    <button type="button" id="teamuser" class="bu1 btn btn-block btn-lg btn-primary btn-icon" style="padding-right:55px;">查看队员信息<i class="fa fa-search"></i></button>
-                <script type="text/javascript">
-                function show_confirm()
-                {
-                    var r=confirm("真的要退出队伍吗？");
-                    if (r==true)
-                    {
-                        window.location.href="http://hithiker.sinaapp.com/groupinfo.html/?exit={{i.0}}"
-                    }
-                    else
-                    {
-                    }
-                }
-                </script>
+                                    <button type="submit" name="team" value={{i.0}} class="bu1 btn btn-block btn-lg btn-primary btn-icon" style="padding-right:55px;">查看队员信息<i class="fa fa-search"></i></button>
+                                    <button type="submit" name="exit" value={{i.0}} class="bu1 btn btn-block btn-lg btn-danger btn-icon">退出此队</button>
                                     {%endif%}
                                 </div>
                             </div>
                         </div>
-                                    
                     </div>
                 </form>
-                <br>
-                {%if flag%}
-                <hr/>
-                <div  id="teamuserinfo" style="margin-top:30px;display:none;">
-                {% for info in user%}
-                <div class="container">     
-                    <div class="col-xs-2">
-                        <img src="/static/images/default_avatar.png" style="border-radius:50%;width:100px;margin-top:-10px;"></img>
-                    </div>
-                    <div class="col-xs-3">
-                        <ul>
-                            <li>姓名：{{info.1}}</li>
-                            <li>年龄：{{info.2}}</li>
-                            <li>性别：{{info.3}}</li>
-                        </ul>
-                    </div>
-                    <div class="col-xs-3">
-                        <ul>
-                            <li>手机：{{info.4}}</li>
-                            <li>邮箱：{{info.7}}</li>
-                            <li>城市：{{info.5}}</li>
-                        </ul>
-                    </div>
-                     
-                </div><hr/>
-               {%endfor%}
-                </div> 
-                 {%endif%}
-                 <div class="row">
-                    <h1>评论区</h1>
-                 <ul>
-                    {%for j in all_uc%}
-                    <li style="height:120px;">
-                        <div class="col-xs-2" id="uinfo" value="">
-                            <img src="/static/images/default_avatar2.png" style="width:100px;border-radius:50%;" ></img>
-                            <h3 style="margin-top:0px;font-size:18px;">{{j.3}}</h3>
-                        </div>
-                        <div class="col-xs-10">
-                            <p>{{j.4}}</p>
-                            <span style="float:right;margin-top:70px;font-size:15px;">{{j.5}}</span>
-                        </div>
-                    </li>
-                    <div class="col-xs-12">
-                    <hr/></div>
-                    {%endfor%}
-                 </ul>      
-                 </div>
-                 <form method="get">
-                <textarea name="comment" cols="92" style="display:block;" required></textarea><button type="submit" name="gid" value={{i.0}} class="bu1 btn btn-primary" style="float:right;margin-top:10px;">发布</button> </form>     
+                <br />
+                <br />
+                <br />                
                 {%endfor%}
             </div>
         </div>
     </div>
-    <script type="text/javascript">
-                var oButton = document.getElementById("teamuser");
-                var oDiv = document.getElementById("teamuserinfo");
-                oButton.onclick=function(){
-                if (oDiv.style.display == "none"){
-                    oDiv.style.display = "block";
-                }else {
-                    oDiv.style.display = "none";
-                }
-                }
-                </script>
-    <div class="subfooter" style="margin-top:54px;">
+    <div class="subfooter">
         <div class="wrap">
             <ul>
                 <li><a href="../index.html">主页</a><span>::</span></li>

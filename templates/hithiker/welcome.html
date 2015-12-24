@@ -2,6 +2,7 @@
 <html>
 <head>
 	<meta charset="utf-8">
+	<link href="/static/css/style.css" rel='stylesheet' type='text/css' />
 	<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
 	<link rel="stylesheet" href="/static/css/reset.css"> <!-- CSS reset -->
@@ -56,6 +57,19 @@
 		@keyframes arrow{ %0,%100{bottom:10px; opacity:1;} 50%{bottom:50px; opacity:.5} }
 		@-webkit-keyframes arrow{ %0,%100{bottom:10px; opacity:1;} 50%{bottom:50px; opacity:.5} }
 	</style>
+	<script type="text/javascript">
+		function ErrCheck(ipt,str)
+		{
+			if(document.getElementById(ipt).value.length==0)
+				{
+					document.getElementById(str).style.display = "block";
+				}
+			else
+			{
+				document.getElementById(str).style.display = "none";
+			}
+		}
+	</script>	
 	<!--[if lte IE 8]>
 	<style type="text/css">
 		html,body{width:100%; height:100%; overflow:scroll}
@@ -138,21 +152,17 @@
 				<form class="cd-form" method="post" action="/index.html/">
 					<p class="fieldset">
 						<label class="image-replace cd-email" for="signin-email">邮箱：</label>
-						<input class="full-width has-padding has-border" id="signin-email" name="signin_email" type="email" placeholder="邮箱">
+						<input class="full-width has-padding has-border" id="signin-email" name="signin_email" type="email" placeholder="邮箱" required="required">
 						<span class="cd-error-message">错误的信息！</span>
 					</p>
 
 					<p class="fieldset">
 						<label class="image-replace cd-password" for="signin-password">密码：</label>
-						<input class="full-width has-padding has-border" id="signin-password" name="signin_password" type="password"  placeholder="密码">
+						<input class="full-width has-padding has-border" id="signin-password" name="signin_password" type="password"  placeholder="密码" required="required">
 						<a href="#0" class="hide-password">显示</a>
 						<span class="cd-error-message">错误的信息！</span>
 					</p>
 
-					<p class="fieldset">
-						<input type="checkbox" id="remember-me" checked>
-						<label for="remember-me">记住我</label>
-					</p>
 
 					<p class="fieldset">
 						<input class="full-width" type="submit" value="登录">
@@ -167,23 +177,39 @@
 				<form class="cd-form" method="post" action="/userinfo.html/">
 					<p class="fieldset">
 						<label class="image-replace cd-username" for="signup-username">用户名：</label>
-						<input class="full-width has-padding has-border" id="signup-username" type="text" name="username" placeholder="用户名">
+						<input class="full-width has-padding has-border" id="signup-username" type="text" name="username" placeholder="用户名" onblur="ErrCheck('signup-username','dv1')" required="required">
 						<span class="cd-error-message">错误的信息！</span>
+						<div class = "tips" id = "dv1">
+				    	<p class = "error">
+				    		* 用户名不能为空
+				    	</p>
+				    </div>
 					</p>
+					
 
 					<p class="fieldset">
 						<label class="image-replace cd-email" for="signup-email">邮箱：</label>
-						<input class="full-width has-padding has-border" id="signup-email" type="email" name="useremail" placeholder="邮箱">
+						<input class="full-width has-padding has-border" id="signup-email" type="email" name="useremail" placeholder="邮箱" onblur="ErrCheck('signup-email','dv2')" required="required">
 						<span class="cd-error-message">错误的信息！</span>
+						<div class = "tips" id = "dv2">
+				    	<p class = "error">
+				    		* 邮箱不能为空
+				    	</p>
+				   		</div>
 					</p>
-
+					
 					<p class="fieldset">
 						<label class="image-replace cd-password" for="signup-password">密码：</label>
-						<input class="full-width has-padding has-border" id="signup-password" type="password"  name="password" placeholder="密码">
+						<input class="full-width has-padding has-border" id="signup-password" type="password"  name="password" placeholder="密码" onblur="ErrCheck('signup-password','dv3')" required="required">
 						<a href="#0" class="hide-password">显示</a>
 						<span class="cd-error-message">错误的信息！</span>
+						<div class = "tips" id = "dv3">
+				    	<p class = "error">
+				    		* 没有密码就注册-_-!!!
+				    	</p>
+				    </div>
 					</p>
-
+					
 					<p class="fieldset">
 						<input type="checkbox" id="accept-terms">
 						<label for="accept-terms">我同意<a href="#0">用户协议</a></label>

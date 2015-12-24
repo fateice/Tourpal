@@ -1014,3 +1014,11 @@ input[type="search"].sb-search-input {
 	width:40%;
 	margin:0 auto;
 }
+.tit i{
+	/*padding-right: 4px;*/
+    color: #f00;
+}
+.tips{
+	display: none;
+	color: #f00;
+}
